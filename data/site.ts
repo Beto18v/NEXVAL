@@ -1,20 +1,37 @@
+export const siteBanner = {
+  message:
+    "🔥 Promo lanzamiento: 3 cupos disponibles — Página web básica desde $350.000 COP | Lista en 5 días",
+  messageMobile: "🔥 Promo: 3 cupos | $350k | Lista en 5 días",
+  whatsappNumber: "573142482943",
+  whatsappText:
+    "Hola, quiero aprovechar la promo de lanzamiento de la página web en 5 días.\nMi negocio es: ->\nEstoy ubicado en: ->\nQuiero una web para: ->",
+  get whatsappUrl() {
+    return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappText)}`;
+  },
+  buttonLabel: "Cotizar por WhatsApp",
+  buttonLabelMobile: "WhatsApp",
+};
 // Hero section data
 export const siteHero = {
   sectionId: "inicio",
   title: "Tu página web lista en 5 a 7 días",
   subtitle:
-    "Con WhatsApp, Google Maps y diseño profesional para atraer clientes.",
+    "Con botón de WhatsApp, Google Maps y diseño profesional para que te encuentren facilmente y te escriban más.",
   cta: {
     primary: {
-      label: "Quiero mi página",
-      href: "#contacto",
+      label: "Cotizar por WhatsApp",
+      href: "https://wa.me/573142482943?text=Hola%2C%20vi%20tu%20web%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20negocio.%20%C2%BFQu%C3%A9%20informaci%C3%B3n%20necesitas%3F",
     },
     secondary: {
       label: "Ver ejemplos",
       href: "#ejemplos",
     },
   },
-  disclaimer: ["✔ Entrega rápida", "✔ Sin mensualidades", "✔ Soporte incluido"],
+  disclaimer: [
+    "✔ Entrega rápida",
+    "✔ Sin mensualidades",
+    "✔ Optimizada para Google",
+  ],
   stats: [
     {
       icon: "📲",
@@ -22,7 +39,7 @@ export const siteHero = {
     },
     {
       icon: "⚡",
-      title: "Entrega rápida, 5 a 7 días",
+      title: "Lista en 5 a 7 días",
     },
     {
       icon: "💰",
@@ -109,16 +126,15 @@ export const headerData = {
     { name: "Servicios", href: "#servicios" },
     { name: "Proceso", href: "#proceso" },
     { name: "Ejemplos", href: "#ejemplos" },
-    { name: "Precios", href: "#precios" },
     { name: "Contacto", href: "#contacto" },
   ],
-  cta: {
-    label: "Hablemos",
-    href: "#contacto",
-  },
   mobileMenu: {
     openLabel: "Abrir menú",
     closeLabel: "Cerrar menú",
+  },
+  button: {
+    label: "Planes y Precios",
+    href: "#precios",
   },
 };
 
@@ -157,9 +173,8 @@ export const siteExamples = {
   label: "Ejemplos",
   title: "Así podría verse tu sitio web",
   subtitle:
-    "Estos son ejemplos de diseños que desarrollo para negocios locales. Cada proyecto es único y se adapta a las necesidades del cliente.",
-  footerText:
-    "Estos son ejemplos demostrativos. Tu sitio será diseñado especialmente para tu negocio.",
+    "Estos son demos demostrativos (sitios de ejemplo). Tu web será personalizada según tu negocio, con tus colores, fotos y contenido.",
+  footerText: "Tu web se adapta al estilo de tu marca.",
 };
 
 // Pricing section data

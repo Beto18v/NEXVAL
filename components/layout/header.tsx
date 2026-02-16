@@ -2,12 +2,11 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { headerData } from "@/data/site";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { brand, navItems, cta, mobileMenu } = headerData;
+  const { brand, navItems, mobileMenu } = headerData;
 
   // Smooth scroll handler
   const handleSmoothScroll = (
@@ -18,14 +17,24 @@ export function Header() {
       e.preventDefault();
       const el = document.querySelector(href);
       if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+        // Compensar el header fijo en móvil y desktop
+        const header = document.querySelector("header");
+        const headerHeight = header?.offsetHeight || 80;
+        // Si es móvil, ajustar el offset
+        let yOffset = -headerHeight;
+        if (window.innerWidth < 768) {
+          yOffset = -144; // Offset específico para mobile, menor
+        }
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
       }
     }
   };
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[rgba(6,12,24,0.78)] shadow-lg border-b border-[rgba(56,189,248,0.18)] backdrop-blur-xl backdrop-saturate-150"
+      className="fixed top-20 sm:top-12 left-0 right-0 z-50 transition-all duration-300 bg-[rgba(6,12,24,0.78)] shadow-lg border-b border-[rgba(56,189,248,0.18)] backdrop-blur-xl backdrop-saturate-150"
       style={{
         WebkitBackdropFilter: "blur(16px) saturate(150%)",
         backdropFilter: "blur(16px) saturate(150%)",
@@ -46,33 +55,34 @@ export function Header() {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
+          <nav className="hidden md:flex items-center w-full">
+            <div className="flex flex-1 justify-center items-center gap-8">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm text-slate-200/90 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-[rgba(56,189,248,0.12)]"
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+            {/* Botón Planes y Precios Desktop */}
+            <div className="flex items-center justify-end">
               <a
-                key={item.name}
-                href={item.href}
-                className="text-sm text-slate-200/90 hover:text-white transition-colors px-2 py-1 rounded-lg hover:bg-[rgba(56,189,248,0.12)]"
-                onClick={(e) => handleSmoothScroll(e, item.href)}
+                href={headerData.button.href}
+                className="px-5 py-2 rounded-lg shadow-lg bg-linear-to-r from-purple-600 via-indigo-500 to-blue-500 hover:from-purple-700 hover:via-indigo-600 hover:to-blue-600 text-white font-bold text-sm transition-all animate-pulse"
+                style={{
+                  letterSpacing: "0.01em",
+                  boxShadow: "0 0 16px 4px #7c3aed, 0 0 32px 8px #3b82f6",
+                }}
+                onClick={(e) => handleSmoothScroll(e, headerData.button.href)}
               >
-                {item.name}
+                {headerData.button.label}
               </a>
-            ))}
+            </div>
           </nav>
-
-          <div className="hidden md:block">
-            <Button
-              asChild
-              size="sm"
-              className="rounded-lg shadow-md bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-5 py-2"
-            >
-              <a
-                href={cta.href}
-                onClick={(e) => handleSmoothScroll(e, cta.href)}
-              >
-                {cta.label}
-              </a>
-            </Button>
-          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -114,21 +124,21 @@ export function Header() {
                   {item.name}
                 </a>
               ))}
-              <Button
-                asChild
-                size="sm"
-                className="w-fit mt-4 rounded-lg shadow-md bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-2"
+              {/* Botón Planes y Precios Mobile */}
+              <a
+                href={headerData.button.href}
+                className="w-full mt-2 px-8 py-2 rounded-lg shadow-lg bg-linear-to-r from-purple-600 via-indigo-500 to-blue-500 hover:from-purple-700 hover:via-indigo-600 hover:to-blue-600 text-white font-bold text-base transition-all animate-pulse text-center"
+                style={{
+                  letterSpacing: "0.01em",
+                  boxShadow: "0 0 16px 4px #7c3aed, 0 0 32px 8px #3b82f6",
+                }}
+                onClick={(e) => {
+                  handleSmoothScroll(e, headerData.button.href);
+                  setIsMenuOpen(false);
+                }}
               >
-                <a
-                  href={cta.href}
-                  onClick={(e) => {
-                    handleSmoothScroll(e, cta.href);
-                    setIsMenuOpen(false);
-                  }}
-                >
-                  {cta.label}
-                </a>
-              </Button>
+                {headerData.button.label}
+              </a>
             </div>
           </nav>
         )}

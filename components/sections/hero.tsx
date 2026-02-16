@@ -8,7 +8,7 @@ export function Hero() {
   return (
     <Section
       id={siteHero.sectionId}
-      className="border-slate-800/80 bg-slate-950 text-slate-100 bg-[radial-gradient(1200px_circle_at_top,rgba(56,189,248,0.1),transparent_60%)]"
+      className="mt-18 md:mt-10 border-slate-800/80 bg-slate-950 text-slate-100 bg-[radial-gradient(1200px_circle_at_top,rgba(56,189,248,0.1),transparent_60%)] scroll-mt-28"
     >
       <div className="max-w-3xl">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-100 leading-tight tracking-tight text-balance">
