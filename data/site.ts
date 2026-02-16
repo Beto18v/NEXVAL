@@ -1,12 +1,12 @@
 // Hero section data
 export const siteHero = {
   sectionId: "inicio",
-  title: "Sitios web modernos para negocios que quieren destacar",
+  title: "Tu página web lista en 5 a 7 días",
   subtitle:
-    "Diseño y desarrollo páginas web rápidas, profesionales y optimizadas para que tu negocio local tenga la presencia digital que merece.",
+    "Con WhatsApp, Google Maps y diseño profesional para atraer clientes.",
   cta: {
     primary: {
-      label: "Solicitar mi sitio web",
+      label: "Quiero mi página",
       href: "#contacto",
     },
     secondary: {
@@ -14,11 +14,24 @@ export const siteHero = {
       href: "#ejemplos",
     },
   },
+  disclaimer: ["✔ Entrega rápida", "✔ Sin mensualidades", "✔ Soporte incluido"],
   stats: [
-    { value: "100%", label: "Responsive" },
-    { value: "< 3s", label: "Tiempo de carga" },
-    { value: "SEO", label: "Optimizado" },
-    { value: "Tuyo", label: "100% tu propiedad" },
+    {
+      icon: "📲",
+      title: "Más clientes por WhatsApp",
+    },
+    {
+      icon: "⚡",
+      title: "Entrega rápida, 5 a 7 días",
+    },
+    {
+      icon: "💰",
+      title: "Pago único (sin mensualidad)",
+    },
+    {
+      icon: "📍",
+      title: "Ubicación y contacto en Google",
+    },
   ],
 };
 

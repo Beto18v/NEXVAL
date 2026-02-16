@@ -39,17 +39,32 @@ export function Hero() {
             </a>
           </Button>
         </div>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {siteHero.disclaimer.map((item, idx) => (
+            <span
+              key={idx}
+              className="text-xs md:text-sm text-cyan-400 bg-slate-800/60 rounded-full px-3 py-1 border border-cyan-500/30 shadow-sm font-medium"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Stats or Trust Indicators */}
       <div className="mt-20 pt-10 border-t border-slate-800/80">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           {siteHero.stats.map((stat, idx) => (
-            <div key={idx}>
-              <p className="text-3xl md:text-4xl font-semibold text-slate-100">
-                {stat.value}
+            <div
+              key={idx}
+              className="group bg-slate-900/70 border border-slate-700 rounded-xl p-5 flex flex-col items-center text-center shadow-md transition-all duration-200 hover:scale-105 hover:border-cyan-400/70 hover:bg-slate-800/80 cursor-pointer"
+            >
+              <span className="text-3xl md:text-4xl mb-2 transition-colors group-hover:text-cyan-400">
+                {stat.icon}
+              </span>
+              <p className="font-semibold text-base md:text-lg text-slate-100 group-hover:text-cyan-300">
+                {stat.title}
               </p>
-              <p className="mt-1 text-sm text-slate-400">{stat.label}</p>
             </div>
           ))}
         </div>
