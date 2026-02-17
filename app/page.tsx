@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { Contact } from "@/components/sections/contact";
 import { Examples } from "@/components/sections/examples";
+import { Faq } from "@/components/sections/faq";
 import { Hero } from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
 import { Process } from "@/components/sections/process";
@@ -19,6 +20,7 @@ export default function Home() {
       <Process />
       <Examples />
       <Pricing />
+      <Faq />
       <Contact />
       <WhatsappFloat />
       <Footer />

@@ -11,7 +11,7 @@ export function Contact() {
   return (
     <Section
       id={siteContact.sectionId}
-      className="border-slate-800/80 bg-slate-900 text-slate-100 bg-[radial-gradient(1200px_circle_at_top,rgba(59,130,246,0.08),transparent_65%)]"
+      className="border-slate-800/80 bg-slate-950 text-slate-100"
     >
       <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div>
