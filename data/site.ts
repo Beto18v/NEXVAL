@@ -1,10 +1,10 @@
 export const siteBanner = {
   message:
-    "🔥 Promo lanzamiento: 3 cupos disponibles — Página web básica desde $350.000 COP | Lista en 5 días",
-  messageMobile: "🔥 Promo: 3 cupos | $350k | Lista en 5 días",
+    "🚀 Lleva tu negocio al siguiente nivel — Página web profesional lista en 5 días",
+  messageMobile: "🚀 Web profesional en 5 días",
   whatsappNumber: "573142482943",
   whatsappText:
-    "Hola, quiero aprovechar la promo de lanzamiento de la página web en 5 días.\nMi negocio es: ->\nEstoy ubicado en: ->\nQuiero una web para: ->",
+    "Hola, quiero una página web profesional lista en 5 días.\nMi negocio es: ->\nEstoy ubicado en: ->\nQuiero una web para: ->",
   get whatsappUrl() {
     return `https://wa.me/${this.whatsappNumber}?text=${encodeURIComponent(this.whatsappText)}`;
   },
