@@ -13,15 +13,18 @@ export function Services() {
   return (
     <Section
       id={siteServices.sectionId}
-      className="border-slate-800/80 bg-slate-900 text-slate-100 bg-[radial-gradient(1200px_circle_at_top,rgba(59,130,246,0.08),transparent_65%)]"
+      className="border-slate-800/80 bg-slate-900 text-slate-100"
     >
-      <div className="max-w-2xl">
-        <p className="text-sm font-medium uppercase tracking-wider text-slate-400">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="text-sm font-medium uppercase tracking-wider text-cyan-300">
           {siteServices.label}
         </p>
-        <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-100 tracking-tight text-balance">
+        <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-slate-100 md:text-4xl">
           {siteServices.title}
         </h2>
+        <p className="mt-2 text-base font-medium text-cyan-200 bg-slate-800/60 rounded-lg inline-block px-4 py-2 shadow-sm">
+          Incluido en todos los planes, sin costos ocultos.
+        </p>
       </div>
 
       <div className="mt-16 grid gap-8 md:grid-cols-3">

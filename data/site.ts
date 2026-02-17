@@ -56,7 +56,7 @@ export const siteHero = {
 export const siteServices = {
   sectionId: "servicios",
   label: "Servicios",
-  title: "Todo lo que tu negocio necesita para estar en línea",
+  title: "Todo lo que tu negocio necesita para atraer más clientes",
   services: [
     {
       icon: "Code",
@@ -109,7 +109,7 @@ export const siteProcess = {
       number: "04",
       title: "Entrega y acompañamiento",
       description:
-        "Te entrego el sitio funcionando, te explico cómo usarlo y te acompaño en los primeros días para resolver cualquier duda.",
+        "Te entrego el sitio funcionando y te acompaño en los primeros días para resolver cualquier duda.",
     },
   ],
 };
@@ -246,7 +246,7 @@ export const siteContact = {
   contacts: [
     {
       icon: "Mail",
-      label: "Email",
+      label: "Correo",
       href: "mailto:nicolasalbertov18@gmail.com",
       text: "nicolasalbertov18@gmail.com",
     },

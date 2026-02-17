@@ -1,5 +1,11 @@
 import Link from "next/link";
 import { footerData } from "@/data/site";
+import {
+  FaWhatsapp,
+  FaInstagram,
+  FaFacebook,
+  FaXTwitter,
+} from "react-icons/fa6";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,6 +24,45 @@ export function Footer() {
               <span className="text-cyan-300">{brand.accent}</span>
             </Link>
             <p className="mt-2 text-sm text-slate-400">{description}</p>
+            {/* Redes sociales */}
+            <div className="flex gap-4 mt-4">
+              <a
+                href="https://wa.me/573142482943"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="text-slate-400 hover:text-green-400 transition-colors text-xl"
+              >
+                <FaWhatsapp />
+              </a>
+              <a
+                href="https://wa.me/573142482943"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-slate-400 hover:text-pink-400 transition-colors text-xl"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://wa.me/573142482943"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="text-slate-400 hover:text-blue-400 transition-colors text-xl"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://wa.me/573142482943"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="X (Twitter)"
+                className="text-slate-400 hover:text-cyan-400 transition-colors text-xl"
+              >
+                <FaXTwitter />
+              </a>
+            </div>
           </div>
 
           <nav className="flex flex-wrap gap-x-6 gap-y-2">

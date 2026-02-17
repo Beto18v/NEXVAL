@@ -56,7 +56,7 @@ export function Faq() {
         {faqs.map((faq) => (
           <Card
             key={faq.question}
-            className="rounded-lg border border-slate-800/80 bg-slate-900/60 p-6"
+            className="rounded-lg border border-cyan-400/50 bg-slate-900/60 p-6"
           >
             <h3 className="text-base font-semibold text-slate-100">
               {faq.question}

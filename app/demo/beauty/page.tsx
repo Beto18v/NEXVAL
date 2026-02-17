@@ -162,7 +162,7 @@ export default function BeautyDemoPage() {
   };
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-gradient-to-b from-rose-50 via-white to-amber-50 text-zinc-800">
+    <div className="relative min-h-screen overflow-x-hidden bg-linear-to-b from-rose-50 via-white to-amber-50 text-zinc-800">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(251,207,232,0.35),transparent_35%),radial-gradient(circle_at_20%_20%,rgba(253,230,138,0.25),transparent_30%)]" />
 
       <header className="fixed left-1/2 top-6 z-50 w-[calc(100%-1.5rem)] max-w-5xl -translate-x-1/2">
@@ -335,7 +335,7 @@ export default function BeautyDemoPage() {
                 key={pack.name}
                 className={`rounded-3xl border p-7 transition ${
                   pack.featured
-                    ? "gold-soft-glow border-amber-200 bg-gradient-to-b from-amber-50 to-white"
+                    ? "gold-soft-glow border-amber-200 bg-linear-to-b from-amber-50 to-white"
                     : "border-rose-100 bg-white"
                 }`}
               >
@@ -578,7 +578,7 @@ export default function BeautyDemoPage() {
         </section>
 
         <section className="mb-16">
-          <div className="gold-soft-glow rounded-3xl border border-amber-200 bg-gradient-to-r from-amber-50 via-rose-50 to-pink-50 p-8 text-center md:p-12">
+          <div className="gold-soft-glow rounded-3xl border border-amber-200 bg-linear-to-r from-amber-50 via-rose-50 to-pink-50 p-8 text-center md:p-12">
             <p className="text-xs uppercase tracking-[0.24em] text-amber-700">
               Beneficio exclusivo
             </p>

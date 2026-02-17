@@ -199,7 +199,11 @@ export function Examples() {
               </ul>
 
               <div className="flex flex-col gap-3 pt-1">
-                <Button asChild className="w-full" size="sm">
+                <Button
+                  asChild
+                  className="w-full bg-fuchsia-700 hover:bg-fuchsia-950"
+                  size="sm"
+                >
                   <Link
                     href={demo.href}
                     onClick={(event) => event.stopPropagation()}
@@ -208,14 +212,18 @@ export function Examples() {
                   </Link>
                 </Button>
 
-                <Button asChild variant="outline" size="sm" className="w-full">
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full bg-indigo-700 hover:bg-indigo-950"
+                >
                   <a
                     href={buildWhatsappLink(demo.name)}
                     target="_blank"
                     rel="noreferrer"
                     onClick={(event) => event.stopPropagation()}
                   >
-                    Solicitar una igual
+                    Quiero una web así
                   </a>
                 </Button>
               </div>
@@ -232,7 +240,11 @@ export function Examples() {
           Te diseñamos una página a medida con estructura de venta, branding
           sólido y enfoque de resultados para tu negocio.
         </p>
-        <Button asChild size="lg" className="mt-6 min-w-64 text-base">
+        <Button
+          asChild
+          size="lg"
+          className="mt-6 min-w-64 text-base bg-cyan-600 hover:bg-cyan-700"
+        >
           <a href={siteBanner.whatsappUrl} target="_blank" rel="noreferrer">
             Cotizar por WhatsApp
           </a>

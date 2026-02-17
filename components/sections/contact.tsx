@@ -1,6 +1,13 @@
 import { siteContact } from "@/data/site";
 import { Section } from "@/components/layout/section";
 import { Mail, MessageCircle } from "lucide-react";
+import {
+  FaRegClock,
+  FaRegBuilding,
+  FaMapMarkerAlt,
+  FaRegStar,
+  FaRegCalendarCheck,
+} from "react-icons/fa";
 
 export function Contact() {
   const iconMap = {
@@ -13,48 +20,89 @@ export function Contact() {
       id={siteContact.sectionId}
       className="border-slate-800/80 bg-slate-950 text-slate-100"
     >
-      <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="mx-auto max-w-3xl text-center">
         <div>
-          <p className="text-sm font-medium uppercase tracking-wider text-slate-400">
+          <p className="text-sm font-medium uppercase tracking-wider text-cyan-300">
             {siteContact.label}
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-semibold text-slate-100 tracking-tight text-balance">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-slate-100 md:text-4xl">
             {siteContact.title}
           </h2>
           <p className="mt-4 text-slate-300/80 leading-relaxed">
             {siteContact.subtitle}
           </p>
 
-          <div className="mt-10 space-y-6">
-            {siteContact.contacts.map((contact) => {
-              const IconComponent =
-                iconMap[contact.icon as keyof typeof iconMap];
-              return (
-                <div key={contact.label} className="flex items-start gap-4">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300 border border-cyan-400/20 shrink-0">
-                    <IconComponent className="w-5 h-5" />
+          <div className="mt-10 flex flex-col md:flex-row md:items-start md:justify-center md:gap-10 text-left">
+            {/* Contactos a la izquierda */}
+            <div className="flex-1 space-y-6 md:pr-4 md:border-slate-800/60">
+              {siteContact.contacts.map((contact) => {
+                const IconComponent =
+                  iconMap[contact.icon as keyof typeof iconMap];
+                return (
+                  <div key={contact.label} className="flex items-start gap-4">
+                    <div className="w-10 h-10 flex items-center justify-center rounded-lg bg-cyan-400/10 text-cyan-300 border border-cyan-400/20 shrink-0">
+                      <IconComponent className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col justify-center">
+                      <p className="font-medium text-slate-100">
+                        {contact.label}
+                      </p>
+                      <a
+                        href={contact.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-300/80 hover:text-cyan-300 transition-colors"
+                      >
+                        {contact.text}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <p className="font-medium text-slate-100">
-                      {contact.label}
-                    </p>
-                    <a
-                      href={contact.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-slate-300/80 hover:text-cyan-300 transition-colors"
-                    >
-                      {contact.text}
-                    </a>
-                  </div>
-                </div>
-              );
-            })}
-            <p className="text-sm text-slate-400 pt-4 border-t border-slate-800/80">
-              {siteContact.footerText}
-            </p>
+                );
+              })}
+              {/* Respuesta rápida */}
+              <div className="flex items-center gap-2 text-cyan-300 text-sm font-medium mb-2">
+                <FaRegClock className="w-5 h-5" />
+                Respuesta en menos de 2 horas (horario laboral)
+              </div>
+              {/* Horario de atención */}
+              <p className="text-sm text-center text-slate-400 pt-4 border-t border-slate-800/80">
+                {siteContact.footerText}
+              </p>
+            </div>
+
+            {/* Checklist a la derecha */}
+            <div className="flex-1 mt-8 md:mt-0 md:max-w-md md:pl-8">
+              <div className="bg-slate-900/80 rounded-lg p-4 border border-cyan-400/10">
+                <p className="font-semibold text-cyan-300 mb-2 flex items-center gap-2">
+                  <span className="text-lg">📋</span> Para cotizar más rápido,
+                  envíame:
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-center gap-2 text-slate-200/90">
+                    <FaRegBuilding className="w-5 h-5 text-cyan-400" />
+                    ¿A qué se dedica tu negocio?
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-200/90">
+                    <FaMapMarkerAlt className="w-5 h-5 text-cyan-400" />
+                    ¿En qué ciudad te encuentras?
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-200/90">
+                    <FaRegStar className="w-5 h-5 text-cyan-400" />
+                    Comparte un ejemplo de web que te guste
+                  </li>
+                  <li className="flex items-center gap-2 text-slate-200/90">
+                    <FaRegCalendarCheck className="w-5 h-5 text-cyan-400" />
+                    ¿Quieres reservas, citas o catálogo?
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+        {/* Frase de confianza */}
+        <p className="text-sm text-amber-400 mt-10">
+          Si no sabes qué plan elegir, te recomiendo el ideal según tu negocio.
+        </p>
       </div>
     </Section>
   );
