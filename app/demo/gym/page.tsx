@@ -99,7 +99,7 @@ export default function GymDemoPage() {
   };
 
   return (
-    <main className="cyber-grid min-h-screen bg-black pb-28 text-white">
+    <main className="cyber-grid min-h-screen overflow-x-hidden bg-black pb-32 text-white md:pb-28">
       <div className="pointer-events-none fixed inset-0 z-0 opacity-60">
         <div className="absolute -left-20 top-20 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
         <div className="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
@@ -107,10 +107,10 @@ export default function GymDemoPage() {
       </div>
 
       <header className="fixed left-0 right-0 top-0 z-50 border-b border-cyan-400/40 bg-black/60 backdrop-blur-xl">
-        <div className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-4 md:px-8">
+        <div className="mx-auto flex h-[88px] min-w-0 max-w-7xl items-center justify-between gap-3 px-4 md:px-8">
           <button
             onClick={() => scrollToSection("home")}
-            className="text-base font-black tracking-[0.35em] text-cyan-300 transition hover:text-cyan-100"
+            className="max-w-[calc(100vw-6rem)] min-w-0 truncate text-left text-[11px] font-black tracking-[0.14em] text-cyan-300 transition hover:text-cyan-100 sm:text-sm sm:tracking-[0.2em] md:max-w-none md:text-base md:tracking-[0.35em]"
           >
             IRONCORE GYM
           </button>
@@ -181,23 +181,23 @@ export default function GymDemoPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.2),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(34,197,94,0.15),transparent_40%),radial-gradient(circle_at_center,rgba(168,85,247,0.2),transparent_55%)]" />
 
         <div className="relative mx-auto w-full max-w-7xl px-4 md:px-8">
-          <p className="mb-4 text-sm uppercase tracking-[0.25em] text-cyan-300">
+          <p className="mb-4 text-xs uppercase tracking-[0.2em] text-cyan-300 sm:text-sm sm:tracking-[0.25em]">
             Rendimiento sin límites
           </p>
-          <h1 className="max-w-4xl text-5xl font-black leading-tight md:text-7xl">
+          <h1 className="max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-7xl">
             Entrena duro.
             <br />
             Vive fuerte.
           </h1>
-          <p className="mt-6 max-w-2xl text-base text-zinc-200 md:text-lg">
+          <p className="mt-6 max-w-2xl text-sm text-zinc-200 sm:text-base md:text-lg">
             La experiencia fitness más intensa de la ciudad: tecnología,
             entrenamiento de alto nivel y una comunidad que no se detiene.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
             <button
               onClick={() => scrollToSection("planes")}
-              className="neon-btn rounded-full px-7 py-3 text-sm font-semibold"
+              className="neon-btn rounded-full px-5 py-3 text-sm font-semibold sm:px-7"
             >
               Ver Planes
             </button>
@@ -205,7 +205,7 @@ export default function GymDemoPage() {
               href="https://wa.me/5215512345678?text=Hola%20quiero%20agendar%20mi%20clase%20gratis%20en%20IRONCORE%20GYM"
               target="_blank"
               rel="noreferrer"
-              className="rounded-full border border-fuchsia-400/50 bg-fuchsia-500/10 px-7 py-3 text-sm font-semibold text-fuchsia-200 transition hover:bg-fuchsia-500/20"
+              className="rounded-full border border-fuchsia-400/50 bg-fuchsia-500/10 px-5 py-3 text-sm font-semibold text-fuchsia-200 transition hover:bg-fuchsia-500/20 sm:px-7"
             >
               Clase Gratis
             </a>
@@ -249,13 +249,16 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="programas" className="diagonal-section relative z-10 py-24">
+      <section
+        id="programas"
+        className="diagonal-section relative z-10 py-16 md:py-24"
+      >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="mb-10">
             <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">
               Programas
             </p>
-            <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
               Entrenamiento diseñado para resultados reales
             </h2>
           </div>
@@ -285,24 +288,24 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="horarios" className="relative z-10 py-24">
+      <section id="horarios" className="relative z-10 py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-[2fr_1fr] md:px-8">
-          <div className="neon-card rounded-2xl bg-zinc-950/70 p-6 md:p-8">
+          <div className="neon-card min-w-0 rounded-2xl bg-zinc-950/70 p-6 md:p-8">
             <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300">
               Horarios
             </p>
-            <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
               Dashboard semanal de clases
             </h2>
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full min-w-[560px] text-left text-sm">
+            <div className="mt-6 w-full overflow-x-auto">
+              <table className="w-full table-fixed text-left text-xs sm:text-sm">
                 <thead>
                   <tr className="border-b border-cyan-400/25 text-cyan-200">
-                    <th className="py-3">Día</th>
-                    <th className="py-3">6:00 AM</th>
-                    <th className="py-3">8:00 AM</th>
-                    <th className="py-3">6:00 PM</th>
-                    <th className="py-3">8:00 PM</th>
+                    <th className="w-[22%] py-2 pr-2">Día</th>
+                    <th className="py-2 pr-2">6:00 AM</th>
+                    <th className="py-2 pr-2">8:00 AM</th>
+                    <th className="py-2 pr-2">6:00 PM</th>
+                    <th className="py-2 pr-0">8:00 PM</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -347,8 +350,13 @@ export default function GymDemoPage() {
                       key={row[0]}
                       className="border-b border-zinc-800 text-zinc-200"
                     >
-                      {row.map((cell) => (
-                        <td key={cell} className="py-3 pr-4">
+                      {row.map((cell, cellIndex) => (
+                        <td
+                          key={`${row[0]}-${cellIndex}`}
+                          className={`py-2 pr-2 align-top wrap-break-word ${
+                            cellIndex === 0 ? "font-semibold text-cyan-100" : ""
+                          }`}
+                        >
                           {cell}
                         </td>
                       ))}
@@ -359,15 +367,15 @@ export default function GymDemoPage() {
             </div>
           </div>
 
-          <aside className="neon-card flex flex-col justify-between rounded-2xl bg-zinc-950/70 p-6 md:p-8">
-            <div>
+          <aside className="neon-card min-w-0 rounded-2xl bg-zinc-950/70 p-6 md:p-8">
+            <div className="min-w-0">
               <p className="text-sm uppercase tracking-[0.2em] text-emerald-300">
                 Reserva tu clase
               </p>
-              <h3 className="mt-2 text-2xl font-semibold">
+              <h3 className="mt-2 text-xl font-semibold sm:text-2xl">
                 Asegura tu lugar hoy
               </h3>
-              <p className="mt-3 text-zinc-300">
+              <p className="mt-3 wrap-break-word text-sm leading-relaxed text-zinc-300 sm:text-base">
                 Agenda por WhatsApp y recibe una recomendación de programa según
                 tu objetivo actual.
               </p>
@@ -376,7 +384,7 @@ export default function GymDemoPage() {
               href="https://wa.me/5215512345678?text=Hola%20quiero%20reservar%20una%20clase%20en%20IRONCORE%20GYM"
               target="_blank"
               rel="noreferrer"
-              className="neon-btn mt-6 rounded-xl px-5 py-3 text-center font-semibold"
+              className="neon-btn mt-6 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-center text-sm font-semibold"
             >
               Reservar por WhatsApp
             </a>
@@ -386,13 +394,13 @@ export default function GymDemoPage() {
 
       <section
         id="transformaciones"
-        className="diagonal-section relative z-10 py-24"
+        className="diagonal-section relative z-10 py-16 md:py-24"
       >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
             Transformaciones
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Historias antes y después que inspiran
           </h2>
 
@@ -403,9 +411,9 @@ export default function GymDemoPage() {
                 texto:
                   "Comenzó con miedo al cardio y hoy completa sesiones funcionales de alta intensidad. El cambio físico vino acompañado de confianza, energía y disciplina diaria.",
                 antes:
-                  "https://images.unsplash.com/photo-1598971639058-a9046a6b5ff7?auto=format&fit=crop&w=900&q=80",
+                  "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=900&q=80",
                 despues:
-                  "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
+                  "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
               },
               {
                 nombre: "Luis · +8kg masa muscular",
@@ -421,9 +429,9 @@ export default function GymDemoPage() {
                 texto:
                   "Después de una pausa larga, volvió de forma progresiva con entrenamiento personalizado y hoy mantiene constancia, fuerza y equilibrio físico.",
                 antes:
-                  "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=80",
+                  "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
                 despues:
-                  "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
+                  "https://images.unsplash.com/photo-1550345332-09e3ac987658?auto=format&fit=crop&w=900&q=80",
               },
             ].map((caso) => (
               <article
@@ -454,12 +462,12 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="planes" className="relative z-10 py-24">
+      <section id="planes" className="relative z-10 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300">
             Planes
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Elige tu nivel y acelera tus resultados
           </h2>
 
@@ -533,12 +541,12 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section className="diagonal-section relative z-10 py-24">
+      <section className="diagonal-section relative z-10 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-emerald-300">
             Equipamiento Premium
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Tecnología de entrenamiento de última generación
           </h2>
 
@@ -561,12 +569,12 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section className="relative z-10 py-24">
+      <section className="relative z-10 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
             Resultados medibles
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Indicadores visuales de progreso
           </h2>
 
@@ -587,7 +595,7 @@ export default function GymDemoPage() {
                 </div>
                 <div className="h-3 rounded-full bg-zinc-800">
                   <div
-                    className="h-3 rounded-full bg-gradient-to-r from-cyan-400 via-violet-500 to-emerald-400 shadow-[0_0_18px_rgba(34,211,238,0.65)]"
+                    className="h-3 rounded-full bg-linear-to-r from-cyan-400 via-violet-500 to-emerald-400 shadow-[0_0_18px_rgba(34,211,238,0.65)]"
                     style={{ width: item.progreso }}
                   />
                 </div>
@@ -597,12 +605,15 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="trainers" className="diagonal-section relative z-10 py-24">
+      <section
+        id="trainers"
+        className="diagonal-section relative z-10 py-16 md:py-24"
+      >
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-fuchsia-300">
             Entrenadores
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Especialistas que elevan tu nivel
           </h2>
 
@@ -624,7 +635,7 @@ export default function GymDemoPage() {
                 nombre: "Diego Núñez",
                 especialidad: "Crossfit y rendimiento atlético",
                 cert: "Certificación CrossFit Level 2",
-                foto: "https://images.unsplash.com/photo-1550345332-09e3ac987658?auto=format&fit=crop&w=900&q=80",
+                foto: "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=900&q=80",
               },
             ].map((coach) => (
               <article
@@ -647,12 +658,12 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="faq" className="relative z-10 py-24">
+      <section id="faq" className="relative z-10 py-16 md:py-24">
         <div className="mx-auto max-w-5xl px-4 md:px-8">
           <p className="text-sm uppercase tracking-[0.25em] text-cyan-300">
             FAQ
           </p>
-          <h2 className="mt-2 text-3xl font-bold md:text-4xl">
+          <h2 className="mt-2 text-2xl font-bold sm:text-3xl md:text-4xl">
             Preguntas frecuentes sobre entrenamiento y membresías
           </h2>
 
@@ -682,13 +693,16 @@ export default function GymDemoPage() {
         </div>
       </section>
 
-      <section id="contact" className="diagonal-section relative z-10 py-24">
+      <section
+        id="contact"
+        className="diagonal-section relative z-10 py-16 md:py-24"
+      >
         <div className="mx-auto grid max-w-7xl gap-8 px-4 md:grid-cols-2 md:px-8">
           <div className="neon-card rounded-2xl bg-zinc-950/70 p-6 md:p-8">
             <p className="text-sm uppercase tracking-[0.2em] text-fuchsia-300">
               Contacto
             </p>
-            <h2 className="mt-2 text-3xl font-bold">
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
               Hablemos de tu próximo cambio
             </h2>
 
@@ -752,12 +766,12 @@ export default function GymDemoPage() {
           <p className="text-sm text-zinc-400">
             © 2026 IRONCORE GYM. Entrena para dominar tu versión futura.
           </p>
-          <div className="flex flex-wrap gap-4 text-sm text-zinc-300">
+          <div className="flex flex-wrap gap-3 text-sm text-zinc-300">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="hover:text-cyan-300"
+                className="rounded-md px-1 py-0.5 hover:text-cyan-300"
               >
                 {link.label}
               </button>
@@ -766,16 +780,16 @@ export default function GymDemoPage() {
         </div>
       </footer>
 
-      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-cyan-400/35 bg-black/90 p-3 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-1 md:px-4">
-          <p className="text-sm text-zinc-200 md:text-base">
+      <div className="fixed bottom-0 left-0 right-0 z-40 border-t border-cyan-400/35 bg-black/90 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl flex-col items-stretch justify-between gap-3 px-1 md:flex-row md:items-center md:gap-4 md:px-4">
+          <p className="text-center text-sm text-zinc-200 sm:text-left md:text-base">
             Comienza hoy. Tu primera sesión puede cambiarlo todo.
           </p>
           <a
             href="https://wa.me/5215512345678?text=Hola%20quiero%20mi%20clase%20gratis%20en%20IRONCORE%20GYM"
             target="_blank"
             rel="noreferrer"
-            className="neon-btn shrink-0 rounded-xl px-4 py-2 text-sm font-semibold md:px-6"
+            className="neon-btn w-full shrink-0 rounded-xl px-4 py-2 text-center text-sm font-semibold md:w-auto md:px-6"
           >
             Clase Gratis
           </a>
@@ -786,7 +800,7 @@ export default function GymDemoPage() {
         href="https://wa.me/5215512345678?text=Hola%2C%20vi%20la%20demo%20IRONCORE%20GYM%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20para%20mi%20gimnasio."
         target="_blank"
         rel="noreferrer"
-        className="neon-float fixed bottom-24 right-4 z-50 rounded-full px-5 py-3 text-sm font-bold text-black md:bottom-24 md:right-8"
+        className="neon-float fixed bottom-32 right-3 z-50 rounded-full px-5 py-3 text-sm font-bold text-black md:bottom-24 md:right-8"
       >
         WhatsApp
       </a>
