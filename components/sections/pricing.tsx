@@ -352,7 +352,7 @@ export function Pricing() {
 
       <div className="mt-12 rounded-lg border border-cyan-400/35 bg-slate-900/80 p-7 text-center shadow-[0_0_0_1px_rgba(34,211,238,0.2),0_18px_40px_rgba(34,211,238,0.12)]">
         <p className="text-lg font-semibold text-slate-100">
-          Agenda una asesoría gratis por WhatsApp y te digo qué plan te
+          Agenda una asesoría gratis por WhatsApp y te decimos qué plan te
           conviene.
         </p>
         <p className="mt-2 text-sm text-slate-300/85">

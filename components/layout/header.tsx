@@ -44,14 +44,16 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           <a
             href={brand.href}
-            className="flex items-center gap-2 text-lg font-bold tracking-tight text-slate-100 px-3 py-1 rounded-xl bg-[rgba(30,64,175,0.12)] border border-[rgba(56,189,248,0.22)] shadow-sm"
+            className="flex items-center gap-2 px-3 py-1"
             style={{ letterSpacing: "0.01em" }}
             onClick={(e) => handleSmoothScroll(e, brand.href)}
           >
-            <span>
-              {brand.name}
-              <span className="text-cyan-300">{brand.accent}</span>
-            </span>
+            <img
+              src="/logonobg.png"
+              alt="Nexval Logo"
+              className="h-28 w-auto mt-2"
+              style={{ maxHeight: 112 }}
+            />
           </a>
 
           {/* Desktop Navigation */}

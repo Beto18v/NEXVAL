@@ -101,7 +101,8 @@ export function Contact() {
         </div>
         {/* Frase de confianza */}
         <p className="text-sm text-amber-400 mt-10">
-          Si no sabes qué plan elegir, te recomiendo el ideal según tu negocio.
+          Si no sabes qué plan elegir, te recomendamos el ideal según tu
+          negocio.
         </p>
       </div>
     </Section>

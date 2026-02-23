@@ -1,6 +1,9 @@
+// Nombre de la empresa para uso destacado con gradiente
+export const companyName = "NEXVAL";
+
 export const siteBanner = {
   message:
-    "🚀 Lleva tu negocio al siguiente nivel — Página web profesional lista en 5 días",
+    "🚀 Impulsa tu negocio con Nexval — Equipo profesional, tu web lista en 5 días",
   messageMobile: "🚀 Web profesional en 5 días",
   whatsappNumber: "573142482943",
   whatsappText:
@@ -14,9 +17,10 @@ export const siteBanner = {
 // Hero section data
 export const siteHero = {
   sectionId: "inicio",
-  title: "Tu página web lista en 5 a 7 días",
+  // Usa companyName en el título para destacar con gradiente en el componente
+  title: "Con " + companyName + " tu página web lista en 5 a 7 días",
   subtitle:
-    "Con botón de WhatsApp, Google Maps y diseño profesional para que te encuentren facilmente y te escriban más.",
+    "Con botón de WhatsApp, Google Maps y diseño profesional para que encuentren tu negocio fácilmente y te contacten más.",
   cta: {
     primary: {
       label: "Cotizar por WhatsApp",
@@ -91,25 +95,25 @@ export const siteProcess = {
       number: "01",
       title: "Diagnóstico inicial",
       description:
-        "Conversamos sobre tu negocio, tus objetivos y lo que necesitas. Entiendo tu visión para crear algo que realmente funcione.",
+        "Conversamos sobre tu negocio, objetivos y necesidades. Nuestro equipo entiende tu visión para crear algo que realmente funcione.",
     },
     {
       number: "02",
       title: "Propuesta visual",
       description:
-        "Te presento un diseño inicial basado en lo que hablamos. Ajustamos juntos hasta que quede exactamente como lo imaginabas.",
+        "Presentamos un diseño inicial basado en lo que hablamos. Ajustamos juntos hasta que quede exactamente como lo imaginabas.",
     },
     {
       number: "03",
       title: "Desarrollo del sitio",
       description:
-        "Construyo tu sitio web con las mejores prácticas de velocidad, SEO y usabilidad. Siempre manteniéndote informado del progreso.",
+        "Construimos tu sitio web con las mejores prácticas de velocidad, SEO y usabilidad. Te mantenemos informado del progreso en todo momento.",
     },
     {
       number: "04",
       title: "Entrega y acompañamiento",
       description:
-        "Te entrego el sitio funcionando y te acompaño en los primeros días para resolver cualquier duda.",
+        "Entregamos el sitio funcionando y acompañamos en los primeros días para resolver cualquier duda o ajuste necesario.",
     },
   ],
 };
@@ -117,8 +121,8 @@ export const siteProcess = {
 // Header data layout
 export const headerData = {
   brand: {
-    name: "webdev",
-    accent: ".",
+    name: "Nexval",
+    accent: "",
     href: "/",
   },
   navItems: [
@@ -141,7 +145,7 @@ export const headerData = {
 // Footer data layout
 export const footerData = {
   brand: {
-    name: "webdev",
+    name: "Nexval",
     accent: ".",
     href: "/",
   },
@@ -183,7 +187,7 @@ export const sitePricing = {
   label: "Precios",
   title: "Planes claros, sin sorpresas",
   subtitle:
-    "Elige el plan que mejor se adapte a las necesidades de tu negocio. Todos incluyen asesoría personalizada.",
+    "Elige el plan que mejor se adapte a las necesidades de tu negocio. Todos incluyen asesoría personalizada por el equipo Nexval.",
   whatsappBaseUrl: "https://wa.me/573142482943?text=Me interesa el plan ",
   buttonText: "Solicitar cotización",
   footerText:
@@ -242,7 +246,7 @@ export const siteContact = {
   label: "Contacto",
   title: "Hablemos de tu proyecto",
   subtitle:
-    "Cuéntame sobre tu negocio y lo que necesitas. Te respondo en menos de 24 horas con una propuesta personalizada.",
+    "Cuéntanos sobre tu negocio y lo que necesitas. El equipo Nexval responde en menos de 24 horas con una propuesta personalizada.",
   contacts: [
     {
       icon: "Mail",
