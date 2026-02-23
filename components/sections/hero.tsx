@@ -51,7 +51,7 @@ export function Hero() {
             asChild
             variant="outline"
             size="lg"
-            className="border-slate-700 text-slate-400 hover:bg-slate-100/60 hover:text-slate-100"
+            className="border-slate-700 text-slate-600 hover:bg-slate-100/60 hover:text-slate-100"
           >
             <a href={siteHero.cta.secondary.href}>
               {siteHero.cta.secondary.label}
