@@ -1,9 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, ChevronDown } from "lucide-react";
 import { siteBanner, sitePricing } from "@/data/site";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const plans = [
   {
@@ -282,7 +286,7 @@ export function Pricing() {
         </div>
       </div>
 
-      <div className="mt-12">
+      <div className="mt-12 max-w-2xl mx-auto">
         <h3 className="text-2xl font-semibold tracking-tight text-slate-100 text-center">
           Extras opcionales para potenciar tu negocio
         </h3>
@@ -290,63 +294,106 @@ export function Pricing() {
           Puedes agregarlos ahora o más adelante
         </p>
 
-        <div className="mt-6 grid gap-5 md:grid-cols-2">
-          {optionalExtras.map((extra) => (
-            <Card
-              key={extra.name}
-              className="rounded-lg border border-slate-800/80 bg-slate-900/65 p-6 shadow-[0_10px_30px_rgba(15,23,42,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-cyan-400/40 hover:shadow-[0_14px_34px_rgba(34,211,238,0.14)]"
-            >
-              <div className="flex h-full flex-col">
-                <p className="text-xs font-medium uppercase tracking-wider text-cyan-200/90">
-                  Complemento opcional
-                </p>
-
-                <div className="mt-3 flex items-start gap-3">
-                  <span className="text-xl leading-none" aria-hidden="true">
-                    {extra.icon}
-                  </span>
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-100">
-                      {extra.name}
-                    </h4>
-                  </div>
-                </div>
-                <p className="mt-2 text-sm text-slate-300/90">
-                  {extra.description}
-                </p>
-
-                <ul className="mt-5 space-y-2">
-                  {extra.includes.map((item) => (
-                    <li key={item} className="flex items-start gap-2.5">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
-                      <span className="text-sm text-slate-300/90">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <p className="mt-5 text-sm font-semibold text-cyan-100">
-                  {extra.price}
-                </p>
-
-                <div className="mt-4">
-                  <Button
-                    asChild
-                    size="sm"
-                    variant="secondary"
-                    className="bg-green-600 border-b-green-800 hover:bg-amber-500 hover:border-b-amber-900"
+        {/* Acordeón de complementos */}
+        <div className="mt-6 flex flex-col gap-3">
+          {(() => {
+            // eslint-disable-next-line react-hooks/rules-of-hooks
+            const [openExtra, setOpenExtra] = useState<number | null>(null);
+            return optionalExtras.map((extra, idx) => {
+              const isOpen = openExtra === idx;
+              return (
+                <Card
+                  key={extra.name}
+                  className="overflow-hidden border border-slate-800/80 bg-slate-900/65 p-0 transition-all duration-300 hover:shadow-[0_0_0_1px_rgba(34,211,238,0.35),0_12px_30px_rgba(34,211,238,0.18)]"
+                >
+                  <button
+                    className="w-full flex items-center justify-between px-6 py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/60"
+                    onClick={() => setOpenExtra(isOpen ? null : idx)}
+                    aria-expanded={isOpen}
+                    aria-controls={`extra-panel-${idx}`}
                   >
-                    <Link
-                      href={getWhatsAppUrl(
-                        `Hola, me interesa el extra ${extra.name}. Quisiera más información y el precio final.`,
-                      )}
+                    <div className="flex flex-1 items-center gap-3">
+                      <span
+                        className="text-xl leading-none mb-1"
+                        aria-hidden="true"
+                      >
+                        {extra.icon}
+                      </span>
+                      <div className="flex-1 text-center">
+                        <p className="text-xs font-medium uppercase tracking-wider text-cyan-200/90 mb-1">
+                          Complemento opcional
+                        </p>
+                        <h4 className="text-lg font-semibold text-slate-100">
+                          {extra.name}
+                        </h4>
+                      </div>
+                    </div>
+                    <motion.span
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="ml-4 text-cyan-400"
                     >
-                      Agregar a mi plan
-                    </Link>
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          ))}
+                      <ChevronDown className="h-6 w-6" />
+                    </motion.span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={`extra-panel-${idx}`}
+                        initial="collapsed"
+                        animate="open"
+                        exit="collapsed"
+                        variants={{
+                          open: { height: "auto", opacity: 1 },
+                          collapsed: { height: 0, opacity: 0 },
+                        }}
+                        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        style={{ overflow: "hidden" }}
+                      >
+                        <div className="px-6 pb-6">
+                          <p className="mt-2 text-sm text-slate-300/90">
+                            {extra.description}
+                          </p>
+                          <ul className="mt-5 space-y-2">
+                            {extra.includes.map((item) => (
+                              <li
+                                key={item}
+                                className="flex items-start gap-2.5"
+                              >
+                                <Check className="mt-0.5 h-4 w-4 shrink-0 text-cyan-400" />
+                                <span className="text-sm text-slate-300/90">
+                                  {item}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                          <p className="mt-5 text-sm font-semibold text-cyan-100">
+                            {extra.price}
+                          </p>
+                          <div className="mt-4">
+                            <Button
+                              asChild
+                              size="sm"
+                              variant="secondary"
+                              className="bg-green-600 border-b-green-800 hover:bg-amber-500 hover:border-b-amber-900"
+                            >
+                              <Link
+                                href={getWhatsAppUrl(
+                                  `Hola, me interesa el extra ${extra.name}. Quisiera más información y el precio final.`,
+                                )}
+                              >
+                                Agregar a mi plan
+                              </Link>
+                            </Button>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Card>
+              );
+            });
+          })()}
         </div>
       </div>
 
