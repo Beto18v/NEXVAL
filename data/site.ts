@@ -38,19 +38,19 @@ export const siteHero = {
   ],
   stats: [
     {
-      icon: "📲",
+      icon: "MdWhatsapp",
       title: "Más clientes por WhatsApp",
     },
     {
-      icon: "⚡",
+      icon: "MdFlashOn",
       title: "Lista en 5 a 7 días",
     },
     {
-      icon: "💰",
+      icon: "MdAttachMoney",
       title: "Pago único (sin mensualidad)",
     },
     {
-      icon: "📍",
+      icon: "MdLocationOn",
       title: "Ubicación y contacto en Google",
     },
   ],

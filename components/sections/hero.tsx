@@ -4,7 +4,14 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { siteHero, companyName } from "@/data/site";
 import { motion } from "framer-motion";
+
 import { ArrowRight } from "lucide-react";
+import {
+  MdWhatsapp,
+  MdFlashOn,
+  MdAttachMoney,
+  MdLocationOn,
+} from "react-icons/md";
 
 export function Hero() {
   return (
@@ -80,23 +87,32 @@ export function Hero() {
       {/* Stats or Trust Indicators */}
       <div className="mt-20 pt-10 border-t border-slate-800/80">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-          {siteHero.stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              className="group bg-slate-900/70 border border-slate-700 rounded-xl p-5 flex flex-col items-center text-center shadow-md transition-all duration-200 hover:scale-105 hover:border-cyan-400/70 hover:bg-slate-800/80 cursor-pointer"
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.3 }}
-              viewport={{ once: true, amount: 0.3 }}
-            >
-              <span className="text-3xl md:text-4xl mb-2 transition-colors group-hover:text-cyan-400">
-                {stat.icon}
-              </span>
-              <p className="font-semibold text-base md:text-lg text-slate-100 group-hover:text-cyan-300">
-                {stat.title}
-              </p>
-            </motion.div>
-          ))}
+          {siteHero.stats.map((stat, idx) => {
+            const icons = {
+              MdWhatsapp: MdWhatsapp,
+              MdFlashOn: MdFlashOn,
+              MdAttachMoney: MdAttachMoney,
+              MdLocationOn: MdLocationOn,
+            };
+            const IconComponent = icons[stat.icon as keyof typeof icons];
+            return (
+              <motion.div
+                key={idx}
+                className="group bg-slate-900/70 border border-slate-700 rounded-xl p-5 flex flex-col items-center text-center shadow-md transition-all duration-200 hover:scale-105 hover:border-cyan-400/70 hover:bg-slate-800/80 cursor-pointer"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: idx * 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
+              >
+                <span className="text-3xl md:text-4xl mb-2 transition-colors group-hover:text-cyan-400">
+                  {IconComponent && <IconComponent />}
+                </span>
+                <p className="font-semibold text-base md:text-lg text-slate-100 group-hover:text-cyan-300">
+                  {stat.title}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </Section>
