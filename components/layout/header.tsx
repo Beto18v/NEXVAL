@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { headerData } from "@/data/site";
 
@@ -48,11 +49,14 @@ export function Header() {
             style={{ letterSpacing: "0.01em" }}
             onClick={(e) => handleSmoothScroll(e, brand.href)}
           >
-            <img
+            <Image
               src="/Logonobg.png"
               alt="Nexval Logo"
+              width={112}
+              height={112}
+              priority
+              sizes="112px"
               className="h-28 w-auto mt-2"
-              style={{ maxHeight: 112 }}
             />
           </a>
 

@@ -4,7 +4,6 @@ import { Section } from "@/components/layout/section";
 import { Button } from "@/components/ui/button";
 import { ResponsiveDeviceMorph } from "@/components/ui/devices";
 import { siteHero, companyName } from "@/data/site";
-import { motion } from "framer-motion";
 
 import { ArrowRight } from "lucide-react";
 import {
@@ -22,12 +21,8 @@ export function Hero() {
     >
       <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] items-start">
         <div className="max-w-3xl md:mt-10">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-100 leading-tight tracking-tight text-balance">
+          <div>
+            <h1 className="hero-fade-in text-4xl md:text-5xl lg:text-6xl font-semibold text-slate-100 leading-tight tracking-tight text-balance">
               {(() => {
                 const parts = siteHero.title.split(companyName);
                 return (
@@ -48,7 +43,10 @@ export function Hero() {
                 );
               })()}
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-slate-300/80 leading-relaxed max-w-2xl">
+            <p
+              className="hero-fade-in mt-6 text-lg md:text-xl text-slate-300/80 leading-relaxed max-w-2xl"
+              style={{ animationDelay: "0.1s" }}
+            >
               {siteHero.subtitle}
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
@@ -77,13 +75,14 @@ export function Hero() {
               {siteHero.disclaimer.map((item, idx) => (
                 <span
                   key={idx}
-                  className="text-xs md:text-sm text-cyan-400 bg-slate-800/60 rounded-full px-3 py-1 border border-cyan-500/30 shadow-sm font-medium"
+                  className="hero-fade-chip text-xs md:text-sm text-cyan-400 bg-slate-800/60 rounded-full px-3 py-1 border border-cyan-500/30 shadow-sm font-medium"
+                  style={{ animationDelay: `${0.2 + idx * 0.08}s` }}
                 >
                   {item}
                 </span>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="lg:pt-10">
@@ -106,13 +105,9 @@ export function Hero() {
             };
             const IconComponent = icons[stat.icon as keyof typeof icons];
             return (
-              <motion.div
+              <div
                 key={idx}
                 className="group bg-slate-900/70 border border-slate-700 rounded-xl p-5 flex flex-col items-center text-center shadow-md transition-all duration-200 hover:scale-105 hover:border-cyan-400/70 hover:bg-slate-800/80 cursor-pointer"
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.3 }}
-                viewport={{ once: true, amount: 0.3 }}
               >
                 <span className="text-3xl md:text-4xl mb-2 transition-colors group-hover:text-cyan-400">
                   {IconComponent && <IconComponent />}
@@ -120,11 +115,54 @@ export function Hero() {
                 <p className="font-semibold text-base md:text-lg text-slate-100 group-hover:text-cyan-300">
                   {stat.title}
                 </p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
       </div>
+
+      <style jsx>{`
+        .hero-fade-in {
+          opacity: 0;
+          animation: heroFadeInUp 0.7s ease-out forwards;
+        }
+
+        .hero-fade-chip {
+          opacity: 0;
+          animation: heroFadeInSoft 0.55s ease-out forwards;
+        }
+
+        @keyframes heroFadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes heroFadeInSoft {
+          from {
+            opacity: 0;
+            transform: translateY(6px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .hero-fade-in,
+          .hero-fade-chip {
+            opacity: 1;
+            animation: none;
+            transform: none;
+          }
+        }
+      `}</style>
     </Section>
   );
 }
