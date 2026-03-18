@@ -167,6 +167,8 @@ const reviews = [
   },
 ] as const;
 
+const reviewCarouselItems = [...reviews, ...reviews];
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -596,32 +598,38 @@ export default function TiendaPetsPage() {
               </p>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {reviews.map((review) => (
-                <article
-                  key={review.name}
-                  className="rounded-[28px] bg-white p-6 shadow-lg shadow-slate-200/50 ring-1 ring-slate-100"
-                >
-                  <div className="flex items-center gap-1 text-[#F59E0B]">
-                    {Array.from({ length: review.rating }).map((_, index) => (
-                      <FaStar
-                        key={`${review.name}-${index}`}
-                        className="text-sm"
-                      />
-                    ))}
-                  </div>
+            <div className="mt-10">
+              <div className="-mx-3 overflow-hidden">
+                <div id="tienda-pets-reviews-track" className="flex">
+                  {reviewCarouselItems.map((review, index) => (
+                    <article
+                      key={`${review.name}-${index}`}
+                      className="w-full shrink-0 px-3 md:w-1/2 lg:w-1/3"
+                    >
+                      <div className="h-full rounded-[28px] bg-white p-6 shadow-lg shadow-slate-200/50 ring-1 ring-slate-100">
+                        <div className="flex items-center gap-1 text-[#F59E0B]">
+                          {Array.from({ length: review.rating }).map((_, starIndex) => (
+                            <FaStar
+                              key={`${review.name}-${starIndex}`}
+                              className="text-sm"
+                            />
+                          ))}
+                        </div>
 
-                  <p className="mt-5 text-lg font-bold text-[#0F172A]">
-                    {review.name}
-                  </p>
-                  <p className="mt-1 text-sm font-medium text-[#0EA5E9]">
-                    {review.source}
-                  </p>
-                  <p className="mt-4 text-sm leading-7 text-[#475569]">
-                    {review.text}
-                  </p>
-                </article>
-              ))}
+                        <p className="mt-5 text-lg font-bold text-[#0F172A]">
+                          {review.name}
+                        </p>
+                        <p className="mt-1 text-sm font-medium text-[#0EA5E9]">
+                          {review.source}
+                        </p>
+                        <p className="mt-4 text-sm leading-7 text-[#475569]">
+                          {review.text}
+                        </p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -816,6 +824,80 @@ export default function TiendaPetsPage() {
           <FaWhatsapp className="h-6 w-6" />
         </a>
       </main>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (() => {
+              const track = document.getElementById("tienda-pets-reviews-track");
+              if (!track || track.dataset.carouselReady === "true") return;
+
+              track.dataset.carouselReady = "true";
+
+              if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+              }
+
+              let animationFrameId = 0;
+              let lastTime = 0;
+              let offset = 0;
+              let loopWidth = 0;
+              let paused = false;
+              const speed = 22;
+
+              track.style.willChange = "transform";
+
+              const measure = () => {
+                loopWidth = track.scrollWidth / 2;
+                if (loopWidth > 0) {
+                  offset = offset % loopWidth;
+                } else {
+                  offset = 0;
+                }
+                track.style.transform = "translateX(-" + offset + "px)";
+              };
+
+              const animate = (time) => {
+                if (!lastTime) {
+                  lastTime = time;
+                }
+
+                const delta = (time - lastTime) / 1000;
+                lastTime = time;
+
+                if (!paused && loopWidth > 0) {
+                  offset += speed * delta;
+                  if (offset >= loopWidth) {
+                    offset -= loopWidth;
+                  }
+                  track.style.transform = "translateX(-" + offset + "px)";
+                }
+
+                animationFrameId = window.requestAnimationFrame(animate);
+              };
+
+              const onEnter = () => {
+                paused = true;
+              };
+
+              const onLeave = () => {
+                paused = false;
+              };
+
+              const onResize = () => {
+                measure();
+              };
+
+              measure();
+              animationFrameId = window.requestAnimationFrame(animate);
+
+              track.addEventListener("mouseenter", onEnter);
+              track.addEventListener("mouseleave", onLeave);
+              window.addEventListener("resize", onResize);
+            })();
+          `,
+        }}
+      />
     </>
   );
 }

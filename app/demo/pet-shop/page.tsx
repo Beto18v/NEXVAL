@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import { FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { FaMapMarkerAlt, FaStar, FaWhatsapp } from "react-icons/fa";
 
 const business = {
   name: "PET SHOP",
@@ -154,6 +154,8 @@ const reviews = [
     rating: 5,
   },
 ] as const;
+
+const reviewCarouselItems = [...reviews, ...reviews];
 
 const primaryButtonClass =
   "inline-flex items-center justify-center gap-2 rounded-full bg-[#0F766E] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#0F766E]/20 transition hover:-translate-y-0.5 hover:bg-[#115E59]";
@@ -573,26 +575,37 @@ export default function PetShopPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {reviews.map((review) => (
-              <article
-                key={review.name}
-                className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70"
-              >
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#0F766E]">
-                  Calificacion lista: {review.rating}/5
-                </p>
-                <p className="mt-5 text-lg font-bold text-[#1F2937]">
-                  {review.name}
-                </p>
-                <p className="mt-1 text-sm font-medium text-[#1E3A8A]">
-                  {review.source}
-                </p>
-                <p className="mt-4 text-sm leading-7 text-[#6B7280]">
-                  {review.text}
-                </p>
-              </article>
-            ))}
+          <div className="mt-10">
+            <div className="-mx-3 overflow-hidden">
+              <div id="pet-shop-reviews-track" className="flex">
+                {reviewCarouselItems.map((review, index) => (
+                  <article
+                    key={`${review.name}-${index}`}
+                    className="w-full shrink-0 px-3 md:w-1/2 lg:w-1/3"
+                  >
+                    <div className="h-full rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70">
+                      <div className="flex items-center gap-1 text-[#F59E0B]">
+                        {Array.from({ length: review.rating }).map((_, starIndex) => (
+                          <FaStar
+                            key={`${review.name}-${starIndex}`}
+                            className="text-sm"
+                          />
+                        ))}
+                      </div>
+                      <p className="mt-5 text-lg font-bold text-[#1F2937]">
+                        {review.name}
+                      </p>
+                      <p className="mt-1 text-sm font-medium text-[#1E3A8A]">
+                        {review.source}
+                      </p>
+                      <p className="mt-4 text-sm leading-7 text-[#6B7280]">
+                        {review.text}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -771,6 +784,80 @@ export default function PetShopPage() {
         <span>WhatsApp</span>
       </a>
       </main>
+
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            (() => {
+              const track = document.getElementById("pet-shop-reviews-track");
+              if (!track || track.dataset.carouselReady === "true") return;
+
+              track.dataset.carouselReady = "true";
+
+              if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+                return;
+              }
+
+              let animationFrameId = 0;
+              let lastTime = 0;
+              let offset = 0;
+              let loopWidth = 0;
+              let paused = false;
+              const speed = 22;
+
+              track.style.willChange = "transform";
+
+              const measure = () => {
+                loopWidth = track.scrollWidth / 2;
+                if (loopWidth > 0) {
+                  offset = offset % loopWidth;
+                } else {
+                  offset = 0;
+                }
+                track.style.transform = "translateX(-" + offset + "px)";
+              };
+
+              const animate = (time) => {
+                if (!lastTime) {
+                  lastTime = time;
+                }
+
+                const delta = (time - lastTime) / 1000;
+                lastTime = time;
+
+                if (!paused && loopWidth > 0) {
+                  offset += speed * delta;
+                  if (offset >= loopWidth) {
+                    offset -= loopWidth;
+                  }
+                  track.style.transform = "translateX(-" + offset + "px)";
+                }
+
+                animationFrameId = window.requestAnimationFrame(animate);
+              };
+
+              const onEnter = () => {
+                paused = true;
+              };
+
+              const onLeave = () => {
+                paused = false;
+              };
+
+              const onResize = () => {
+                measure();
+              };
+
+              measure();
+              animationFrameId = window.requestAnimationFrame(animate);
+
+              track.addEventListener("mouseenter", onEnter);
+              track.addEventListener("mouseleave", onLeave);
+              window.addEventListener("resize", onResize);
+            })();
+          `,
+        }}
+      />
     </>
   );
 }
