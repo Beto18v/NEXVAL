@@ -19,9 +19,9 @@ const business = {
   headline:
     "Productos para mascotas en Bogota con atencion rapida por WhatsApp",
   supportingLine:
-    "Alimentos, accesorios, medicamentos, domicilios en Bogota y envios nacionales contra entrega.",
+    "Concentrado, accesorios, medicamentos, domicilios en Bogota y envios a otras ciudades.",
   description:
-    "Tienda Pets facilita la compra de productos para mascotas con respuesta agil por WhatsApp, ubicacion fisica clara y opciones de entrega para clientes en Bogota y otras ciudades.",
+    "Si necesitas concentrado, accesorios o medicamentos para tu mascota, en Tienda Pets te respondemos rapido por WhatsApp y te ayudamos a pedir lo que buscas sin tanta vuelta.",
   instagramUrl: "https://www.instagram.com/tiendapets_col/",
   instagramUser: "@tiendapets_col",
   whatsappNumber: "316 482 2444",
@@ -46,17 +46,17 @@ const heroCards = [
   {
     title: "WhatsApp directo",
     description:
-      "Un canal claro para consultar disponibilidad, coordinar pedidos y resolver compras sin vueltas.",
+      "Nos escribes, nos cuentas que buscas y te respondemos rapido para ayudarte con tu pedido.",
   },
   {
     title: "Dos puntos de atencion",
     description:
-      "Direcciones visibles para clientes que prefieren comprar cerca o ubicar la tienda rapido.",
+      "Tenemos dos puntos de atencion para que elijas el que te quede mejor y llegues sin enredos.",
   },
   {
-    title: "Cobertura comercial",
+    title: "Domicilios y envios",
     description:
-      "Domicilios en Bogota y envios nacionales contra entrega para ampliar alcance.",
+      "Si estas en Bogota te lo llevamos a domicilio, y si estas fuera te guiamos con el envio.",
   },
 ] as const;
 
@@ -69,31 +69,31 @@ const services: Array<{
     icon: GiDogBowl,
     title: "Alimentos para mascotas",
     description:
-      "Compra alimentos para mascotas con atencion rapida por WhatsApp para confirmar pedido, entrega o visita a tienda.",
+      "Te ayudamos a resolver la compra del dia a dia con respuesta rapida por WhatsApp y opcion de pasar por tienda o pedir domicilio.",
   },
   {
     icon: FaBone,
     title: "Accesorios",
     description:
-      "Una categoria clave para clientes que buscan complementar la compra con productos utiles para el dia a dia de su mascota.",
+      "Tambien manejamos accesorios para que completes la compra con lo que hace falta en casa para tu mascota.",
   },
   {
     icon: FaPills,
     title: "Medicamentos",
     description:
-      "Consulta por medicamentos y recibe respuesta directa para avanzar la compra con mas rapidez y mejor orientacion comercial.",
+      "Si necesitas medicamentos, te confirmamos por WhatsApp y te orientamos para que sepas como pedirlos.",
   },
   {
     icon: FaMotorcycle,
     title: "Domicilios en Bogota",
     description:
-      "Ideal para pedidos recurrentes o compras urgentes sin salir de casa, con coordinacion directa por WhatsApp.",
+      "Si ya sabes lo que vas a pedir, te ayudamos a coordinar el domicilio para que lo recibas sin salir.",
   },
   {
     icon: FaShippingFast,
     title: "Envios nacionales / contra entrega",
     description:
-      "Una opcion comercial valiosa para vender fuera de Bogota y facilitar el cierre de pedidos en otras zonas.",
+      "Si estas fuera de Bogota, tambien te ayudamos con el envio y la opcion contra entrega segun el destino.",
   },
 ];
 
@@ -103,28 +103,28 @@ const galleryImages = [
     alt: "Fachada de Tienda Pets en Bogota",
     title: "Fachada y punto de atencion",
     description:
-      "Una imagen que ayuda a ubicar el negocio y a reforzar confianza desde el primer vistazo.",
+      "Asi nos ubicas rapido y sabes a donde venir cuando prefieres comprar en persona.",
   },
   {
     src: "/images/tienda-pets/productos.jpg",
     alt: "Productos para mascotas en Tienda Pets",
-    title: "Inventario y categorias visibles",
+    title: "Productos que manejan",
     description:
-      "Contenido visual pensado para mostrar variedad y facilitar decisiones de compra.",
+      "Aqui te mostramos parte de lo que manejamos para que veas que puedes resolver varias cosas en una sola compra.",
   },
   {
     src: "/images/tienda-pets/pet1.jpg",
     alt: "Mascota en Tienda Pets",
     title: "Una marca cercana",
     description:
-      "El tono visual transmite un negocio local amable, confiable y enfocado en atencion.",
+      "Queremos que se sienta como lo que somos: una tienda cercana donde te ayudamos a escoger lo que necesitas.",
   },
   {
     src: "/images/tienda-pets/pet2.jpg",
     alt: "Mascota junto a productos de Tienda Pets",
-    title: "Contenido que conecta",
+    title: "Fotos que dan confianza",
     description:
-      "Fotos del negocio y de mascotas ayudan a vender mejor la experiencia y la relacion con clientes.",
+      "Mostramos fotos reales del negocio y de mascotas para que la pagina se sienta mas cercana.",
   },
 ] as const;
 
@@ -402,13 +402,13 @@ export default function TiendaPetsPage() {
                         Ubicacion visible
                       </p>
                       <p className="mt-2 text-2xl font-bold">
-                        Tienda fisica con presencia clara desde la primera
-                        pantalla
+                        Aqui nos encuentras facil y tambien puedes escribirnos
+                        de una
                       </p>
                       <p className="mt-2 max-w-lg text-sm leading-6 text-white/85">
-                        El enfoque visual combina confianza local, direccion
-                        facil de encontrar y un canal directo para pasar de la
-                        visita al pedido.
+                        Si prefieres venir, aqui ubicas rapido la tienda. Y si
+                        quieres ahorrar tiempo, nos escribes antes y te
+                        confirmamos lo que necesitas.
                       </p>
                     </div>
                   </div>
@@ -425,11 +425,11 @@ export default function TiendaPetsPage() {
                     </div>
                     <div className="p-4">
                       <p className="text-sm font-semibold text-[#0F172A]">
-                        Compra mas clara
+                        Productos a la vista
                       </p>
                       <p className="mt-1 text-sm leading-6 text-[#475569]">
-                        Fotos utiles para mostrar categorias y facilitar
-                        contacto.
+                        Mostramos lo que manejamos para que preguntes sin tanta
+                        vuelta.
                       </p>
                     </div>
                   </div>
@@ -449,8 +449,8 @@ export default function TiendaPetsPage() {
                         Una marca cercana
                       </p>
                       <p className="mt-1 text-sm leading-6 text-[#475569]">
-                        El tono visual conecta mejor con clientes de negocio
-                        local.
+                        Queremos que se vea como somos: cercanos, claros y
+                        siempre pendientes de ayudarte a escoger.
                       </p>
                     </div>
                   </div>
@@ -468,13 +468,12 @@ export default function TiendaPetsPage() {
                 Servicios
               </span>
               <h2 className="mt-5 text-3xl font-black text-[#0F172A] sm:text-4xl">
-                Categorias visibles para que el cliente entienda rapido que
-                puede pedir
+                Lo que puedes conseguir y pedir facilmente
               </h2>
               <p className="mt-4 text-base leading-7 text-[#475569]">
-                La presentacion esta orientada a negocio real: explicar que
-                vende Tienda Pets, facilitar la decision y llevar al usuario al
-                canal que convierte mejor.
+                Desde concentrado hasta accesorios y medicamentos, aqui te
+                mostramos todo de forma clara para que veas si te sirve y nos
+                escribas de una.
               </p>
             </div>
 
@@ -515,13 +514,11 @@ export default function TiendaPetsPage() {
                   Galeria
                 </span>
                 <h2 className="mt-5 text-3xl font-black text-[#0F172A] sm:text-4xl">
-                  Fotos del negocio para reforzar confianza y facilitar
-                  conversion
+                  Fotos reales del negocio y de lo que tenemos
                 </h2>
                 <p className="mt-4 text-base leading-7 text-[#475569]">
-                  La galeria queda organizada con rutas locales y texto
-                  comercial claro para que sea sencillo reemplazar imagenes sin
-                  tocar otros archivos del proyecto.
+                  Queremos que quien entra vea la tienda, los productos y el
+                  ambiente real sin tener que imaginarse como es el lugar.
                 </p>
               </div>
 
@@ -573,12 +570,11 @@ export default function TiendaPetsPage() {
                 Resenas
               </span>
               <h2 className="mt-5 text-3xl font-black text-[#0F172A] sm:text-4xl">
-                Lo que destacan clientes sobre Tienda Pets
+                Lo que mas nos destacan quienes compran con nosotros
               </h2>
               <p className="mt-4 text-base leading-7 text-[#475569]">
-                Estas resenas refuerzan rapidez en la atencion, variedad de
-                productos y una experiencia cercana para clientes que buscan una
-                tienda de mascotas confiable en Bogota.
+                Lo que mas repiten es algo simple: atendemos bien, respondemos
+                rapido y buscamos ayudarte a conseguir lo que necesitas.
               </p>
             </div>
 
@@ -627,9 +623,9 @@ export default function TiendaPetsPage() {
                 confianza
               </h2>
               <p className="mt-4 text-base leading-7 text-[#475569]">
-                La ubicacion no queda escondida: se muestra con direccion
-                principal, sede adicional, mapa embebido y botones directos para
-                abrir ruta o escribir por WhatsApp.
+                Aqui te dejamos nuestras direcciones para que llegues sin
+                enredos o nos escribas antes de venir y confirmes lo que
+                buscas.
               </p>
 
               <div className="mt-8 space-y-4">
@@ -701,9 +697,9 @@ export default function TiendaPetsPage() {
                   Habla con Tienda Pets por WhatsApp y recibe atencion rapida
                 </h2>
                 <p className="mt-4 text-base leading-7 text-white/85">
-                  Una pagina clara, local y orientada a conversion funciona
-                  mejor cuando deja visible el siguiente paso: escribir,
-                  preguntar y cerrar el pedido.
+                  Si quieres preguntar por un producto, confirmar un domicilio o
+                  pedir informacion, por WhatsApp te respondemos rapido y te
+                  ayudamos con lo que necesites.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -742,8 +738,9 @@ export default function TiendaPetsPage() {
                 {business.category}
               </p>
               <p className="mt-3 max-w-xl text-sm leading-6 text-[#475569]">
-                Alimentos, accesorios, medicamentos, domicilios en Bogota y
-                atencion por WhatsApp para resolver compras de forma mas rapida.
+                Concentrado, accesorios, medicamentos y domicilios para que
+                compres facil y siempre encuentres una respuesta rapida de
+                nuestro lado.
               </p>
             </div>
 
