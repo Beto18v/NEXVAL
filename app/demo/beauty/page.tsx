@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Instagram, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 type FaqItem = {
   question: string;
@@ -288,9 +291,13 @@ export default function BeautyDemoPage() {
 
             <div className="relative">
               <div className="gold-soft-glow overflow-hidden rounded-[2rem] border border-rose-100 bg-white p-2">
-                <img
+                <Image
+                  loader={imageLoader}
+                  unoptimized
                   src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1200&q=80"
                   alt="Modelo con maquillaje elegante"
+                  width={900}
+                  height={1200}
                   className="h-[540px] w-full rounded-[1.5rem] object-cover"
                 />
               </div>
@@ -378,11 +385,15 @@ export default function BeautyDemoPage() {
           </div>
           <div className="columns-2 gap-4 space-y-4 md:columns-3 lg:columns-4">
             {galleryImages.map((src, index) => (
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
                 key={src}
                 src={src}
                 alt={`Trabajo de belleza ${index + 1}`}
-                className="premium-hover w-full break-inside-avoid rounded-2xl border border-rose-100 object-cover"
+                width={900}
+                height={1200}
+                className="premium-hover h-auto w-full break-inside-avoid rounded-2xl border border-rose-100 object-cover"
               />
             ))}
           </div>
@@ -408,9 +419,13 @@ export default function BeautyDemoPage() {
                 </p>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <img
+                    <Image
+                      loader={imageLoader}
+                      unoptimized
                       src={item.before}
                       alt={`${item.title} antes`}
+                      width={700}
+                      height={700}
                       className="h-44 w-full rounded-xl object-cover"
                     />
                     <p className="mt-2 text-center text-xs uppercase tracking-wider text-zinc-500">
@@ -418,9 +433,13 @@ export default function BeautyDemoPage() {
                     </p>
                   </div>
                   <div>
-                    <img
+                    <Image
+                      loader={imageLoader}
+                      unoptimized
                       src={item.after}
                       alt={`${item.title} después`}
+                      width={700}
+                      height={700}
                       className="h-44 w-full rounded-xl object-cover"
                     />
                     <p className="mt-2 text-center text-xs uppercase tracking-wider text-zinc-500">

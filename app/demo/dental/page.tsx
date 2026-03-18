@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
   Menu,
@@ -13,6 +14,8 @@ import {
   BadgeCheck,
   Smile,
 } from "lucide-react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 const NAV_LINKS = [
   { label: "Inicio", id: "home" },
@@ -376,9 +379,13 @@ export default function DentalDemoPage() {
           </div>
 
           <div className="fade-in-up relative">
-            <img
+            <Image
+              loader={imageLoader}
+              unoptimized
               src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1400&q=80"
               alt="Clínica dental moderna"
+              width={1400}
+              height={1000}
               className="h-[520px] w-full rounded-3xl object-cover shadow-xl"
             />
             <div className="absolute -bottom-6 -left-6 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
@@ -503,9 +510,13 @@ export default function DentalDemoPage() {
                 key={doctor.name}
                 className="rounded-2xl border border-slate-200 bg-white p-5"
               >
-                <img
+                <Image
+                  loader={imageLoader}
+                  unoptimized
                   src={doctor.image}
                   alt={doctor.name}
+                  width={900}
+                  height={1100}
                   className="h-64 w-full rounded-2xl object-cover"
                 />
                 <h3 className="mt-4 text-xl font-semibold text-slate-900">
@@ -544,14 +555,22 @@ export default function DentalDemoPage() {
                 className="rounded-3xl border border-slate-200 bg-white p-6"
               >
                 <div className="grid gap-4 md:grid-cols-2">
-                  <img
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
                     src={item.before}
                     alt={`Antes - ${item.title}`}
+                    width={900}
+                    height={900}
                     className="h-60 w-full rounded-2xl object-cover"
                   />
-                  <img
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
                     src={item.after}
                     alt={`Después - ${item.title}`}
+                    width={900}
+                    height={900}
                     className="h-60 w-full rounded-2xl object-cover"
                   />
                 </div>

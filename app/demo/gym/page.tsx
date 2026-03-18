@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import {
   Menu,
@@ -11,6 +12,8 @@ import {
   Calendar,
   CheckCircle2,
 } from "lucide-react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 const HEADER_OFFSET = 88;
 
@@ -172,9 +175,13 @@ export default function GymDemoPage() {
         id="home"
         className="relative z-10 flex min-h-screen items-center overflow-hidden pt-28 md:pt-32"
       >
-        <img
+        <Image
+          loader={imageLoader}
+          unoptimized
           src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=80"
           alt="Gimnasio moderno con iluminación intensa"
+          width={2000}
+          height={1300}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/50" />
@@ -439,14 +446,22 @@ export default function GymDemoPage() {
                 className="neon-card rounded-2xl bg-zinc-950/65 p-5 md:p-6"
               >
                 <div className="grid gap-4 md:grid-cols-[1fr_1fr_1.1fr]">
-                  <img
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
                     src={caso.antes}
                     alt={`Antes de ${caso.nombre}`}
+                    width={900}
+                    height={900}
                     className="h-56 w-full rounded-xl object-cover"
                   />
-                  <img
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
                     src={caso.despues}
                     alt={`Después de ${caso.nombre}`}
+                    width={900}
+                    height={900}
                     className="h-56 w-full rounded-xl object-cover"
                   />
                   <div className="flex flex-col justify-center">
@@ -642,9 +657,13 @@ export default function GymDemoPage() {
                 key={coach.nombre}
                 className="neon-card rounded-2xl bg-zinc-950/70 p-5"
               >
-                <img
+                <Image
+                  loader={imageLoader}
+                  unoptimized
                   src={coach.foto}
                   alt={coach.nombre}
+                  width={900}
+                  height={1100}
                   className="h-64 w-full rounded-xl object-cover"
                 />
                 <h3 className="mt-4 text-xl font-semibold text-cyan-200">

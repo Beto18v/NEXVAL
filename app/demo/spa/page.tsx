@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 const HEADER_OFFSET = 88;
 
@@ -296,9 +299,13 @@ export default function SpaDemo() {
           </div>
 
           <div className="fade-up-delayed relative mx-auto w-full max-w-md">
-            <img
+            <Image
+              loader={imageLoader}
+              unoptimized
               src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1000&q=80"
               alt="Espacio relajante de spa"
+              width={1000}
+              height={1400}
               className="h-140 w-full rounded-[2rem] object-cover shadow-[0_20px_60px_-30px_rgba(84,112,98,0.45)]"
             />
             <div className="absolute -bottom-5 -left-4 rounded-2xl border border-[#dfd6c2] bg-[#f8f2e8]/90 px-4 py-3 text-sm text-[#6a7e73] shadow-lg">
@@ -381,9 +388,13 @@ export default function SpaDemo() {
           </div>
 
           <div className="relative">
-            <img
+            <Image
+              loader={imageLoader}
+              unoptimized
               src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80"
               alt="Ritual de spa premium"
+              width={1200}
+              height={1200}
               className="h-full min-h-105 w-full rounded-[2rem] object-cover shadow-[0_20px_60px_-30px_rgba(84,112,98,0.45)]"
             />
           </div>
@@ -403,9 +414,13 @@ export default function SpaDemo() {
                 key={image}
                 className="group overflow-hidden rounded-2xl border border-[#eadfcb] bg-white"
               >
-                <img
+                <Image
+                  loader={imageLoader}
+                  unoptimized
                   src={image}
                   alt={`Galería Serenity Spa ${index + 1}`}
+                  width={900}
+                  height={700}
                   className="h-52 w-full object-cover transition duration-500 group-hover:scale-110"
                 />
               </div>

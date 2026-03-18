@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   Award,
   Clock3,
@@ -11,6 +12,8 @@ import {
   X,
 } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 const navItems = [
   { id: "home", label: "Inicio" },
@@ -334,9 +337,13 @@ export default function RestaurantDemo() {
 
             <div className="fade-rise-delay relative">
               <div className="absolute -inset-5 rounded-[2rem] bg-[radial-gradient(circle_at_20%_20%,rgba(202,158,93,0.22),transparent_60%)]" />
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
                 src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1400&q=80"
                 alt="Plato gourmet italiano"
+                width={1400}
+                height={1200}
                 className="relative h-135 w-full rounded-[2rem] object-cover shadow-[0_30px_70px_rgba(0,0,0,0.6)]"
               />
             </div>
@@ -416,9 +423,13 @@ export default function RestaurantDemo() {
           className="mx-auto grid max-w-7xl gap-10 px-4 py-20 lg:grid-cols-2"
         >
           <div className="fade-rise rounded-[2rem] border border-[#b48a47]/30 bg-[#130d0f] p-3">
-            <img
+            <Image
+              loader={imageLoader}
+              unoptimized
               src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1200&q=80"
               alt="Chef principal de La Toscana"
+              width={1200}
+              height={1100}
               className="h-130 w-full rounded-[1.5rem] object-cover"
             />
           </div>
@@ -574,11 +585,15 @@ export default function RestaurantDemo() {
 
           <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
             {galeria.map((img, index) => (
-              <img
+              <Image
+                loader={imageLoader}
+                unoptimized
                 key={img}
                 src={img}
                 alt={`Galería La Toscana ${index + 1}`}
-                className="fade-soft mb-5 w-full break-inside-avoid rounded-2xl object-cover"
+                width={1000}
+                height={1200}
+                className="fade-soft mb-5 h-auto w-full break-inside-avoid rounded-2xl object-cover"
               />
             ))}
           </div>

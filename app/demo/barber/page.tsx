@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
 import {
   Calendar,
@@ -10,6 +11,8 @@ import {
   Scissors,
   X,
 } from "lucide-react";
+
+const imageLoader = ({ src }: { src: string }) => src;
 
 const navItems = [
   { id: "home", label: "Inicio", icon: Scissors },
@@ -247,9 +250,13 @@ export default function BarberDemoPage() {
           id="home"
           className="relative min-h-[90vh] overflow-hidden px-4 pb-16 pt-20 md:px-10 md:pt-14 fade-in"
         >
-          <img
+          <Image
+            loader={imageLoader}
+            unoptimized
             src="https://images.unsplash.com/photo-1622288432450-277d0fef5ed6?auto=format&fit=crop&w=1600&q=80"
             alt="Interior de barbería premium"
+            width={1600}
+            height={1200}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/50" />
@@ -369,9 +376,13 @@ export default function BarberDemoPage() {
                 className="group min-w-[270px] overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 md:min-w-[320px]"
               >
                 <div className="h-72 overflow-hidden">
-                  <img
+                  <Image
+                    loader={imageLoader}
+                    unoptimized
                     src={style.image}
                     alt={style.name}
+                    width={900}
+                    height={1200}
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
                   />
                 </div>
@@ -401,9 +412,13 @@ export default function BarberDemoPage() {
                 key={barber.name}
                 className="rounded-xl border border-zinc-800 bg-zinc-900/70 p-4"
               >
-                <img
+                <Image
+                  loader={imageLoader}
+                  unoptimized
                   src={barber.image}
                   alt={barber.name}
+                  width={900}
+                  height={1100}
                   className="h-64 w-full rounded-lg object-cover"
                 />
                 <h3 className="mt-4 text-lg font-semibold text-white">
