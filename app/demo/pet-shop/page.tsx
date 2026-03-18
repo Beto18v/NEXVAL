@@ -156,10 +156,10 @@ const reviews = [
 ] as const;
 
 const primaryButtonClass =
-  "inline-flex items-center justify-center gap-2 rounded-full bg-[#F97316] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#F97316]/25 transition hover:-translate-y-0.5 hover:bg-[#EA580C]";
+  "inline-flex items-center justify-center gap-2 rounded-full bg-[#0F766E] px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-[#0F766E]/20 transition hover:-translate-y-0.5 hover:bg-[#115E59]";
 
 const secondaryButtonClass =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-[#1E3A8A]/15 bg-white px-6 py-3.5 text-sm font-semibold text-[#1F2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#1E3A8A]/30";
+  "inline-flex items-center justify-center gap-2 rounded-full border border-[#1D4ED8]/15 bg-white px-6 py-3.5 text-sm font-semibold text-[#1F2937] shadow-sm transition hover:-translate-y-0.5 hover:border-[#1D4ED8]/30";
 
 export const metadata: Metadata = {
   title: "PET SHOP | Peluqueria canina y productos para mascotas",
@@ -195,24 +195,31 @@ export const metadata: Metadata = {
 
 export default function PetShopPage() {
   return (
-    <main className="min-h-screen bg-[#FFF7ED] text-[#1F2937]">
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(249,115,22,0.18),rgba(250,204,21,0.16),rgba(255,247,237,0.92))]" />
-        <div className="absolute -left-10 top-10 h-64 w-64 rounded-full bg-[#F97316]/20 blur-3xl" />
-        <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-[#FACC15]/20 blur-3xl" />
+    <>
+      <style>{`
+        html {
+          scroll-behavior: smooth;
+        }
+      `}</style>
 
-        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-5 sm:px-6 lg:px-8 lg:pb-24 lg:pt-8">
-          <div className="rounded-[28px] border border-white/80 bg-white/80 px-4 py-4 shadow-lg shadow-orange-100/60 backdrop-blur">
+      <main className="min-h-screen bg-[#F4F9FC] text-[#1F2937]">
+        {/* Header */}
+        <header className="fixed inset-x-0 top-4 z-50 px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl rounded-[28px] border border-[#DBEAFE] bg-white/88 px-4 py-4 shadow-lg shadow-sky-100/70 backdrop-blur-xl">
             <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.28em] text-[#1E3A8A]">
-                  PET SHOP
-                </p>
-                <p className="mt-2 text-sm text-[#6B7280]">
-                  Peluqueria canina y productos para mascotas
-                </p>
-              </div>
+              <a href="#inicio" className="inline-flex items-center gap-3 rounded-[26px] border border-[#BFDBFE] bg-[linear-gradient(135deg,rgba(255,255,255,0.96),rgba(224,242,254,0.86),rgba(204,251,241,0.74))] px-4 py-3 shadow-md shadow-sky-100/80">
+                <span className="flex h-11 w-11 items-center justify-center rounded-[18px] bg-[linear-gradient(135deg,#1D4ED8,#0F766E)] text-sm font-black tracking-[0.14em] text-white">
+                  PS
+                </span>
+                <div className="leading-none">
+                  <p className="text-[0.9rem] font-bold uppercase tracking-[0.48em] text-[#0F766E]">
+                    PET
+                  </p>
+                  <p className="mt-1 text-[1.35rem] font-black uppercase tracking-[0.3em] text-[#0F172A] sm:text-[1.5rem]">
+                    SHOP
+                  </p>
+                </div>
+              </a>
 
               <nav className="hidden items-center gap-5 lg:flex">
                 {navigation.map((item) => (
@@ -237,19 +244,27 @@ export default function PetShopPage() {
               </a>
             </div>
           </div>
+        </header>
 
-          <div className="mt-8 overflow-hidden rounded-[40px] border border-[#FED7AA] bg-white shadow-2xl shadow-orange-100/70">
+      {/* Hero */}
+      <section id="inicio" className="relative scroll-mt-32 overflow-hidden sm:scroll-mt-36">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(56,189,248,0.16),rgba(20,184,166,0.12),rgba(244,249,252,0.94))]" />
+        <div className="absolute -left-10 top-10 h-64 w-64 rounded-full bg-[#38BDF8]/18 blur-3xl" />
+        <div className="absolute right-0 top-16 h-72 w-72 rounded-full bg-[#14B8A6]/16 blur-3xl" />
+
+        <div className="relative mx-auto max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pt-32 lg:px-8 lg:pb-24 lg:pt-36">
+          <div className="overflow-hidden rounded-[40px] border border-[#BFDBFE] bg-white shadow-2xl shadow-sky-100/70">
             <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
-              <div className="relative border-b border-[#FED7AA] bg-[linear-gradient(180deg,#FFF7ED_0%,#FFEDD5_100%)] p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
-                <div className="inline-flex rounded-full bg-[#1E3A8A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-sm">
+              <div className="relative border-b border-[#BFDBFE] bg-[linear-gradient(180deg,#F8FCFF_0%,#E0F2FE_100%)] p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
+                <div className="inline-flex rounded-full bg-[#0F766E] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-sm">
                   Estamos cerca de ti y de tu mascota
                 </div>
 
-                <div className="mt-8 rounded-[32px] border border-[#FDBA74] bg-white px-6 py-6 shadow-lg shadow-orange-100/60">
+                <div className="mt-8 rounded-[32px] border border-[#BFDBFE] bg-white px-6 py-6 shadow-lg shadow-sky-100/70">
                   <h1 className="mt-4 text-5xl font-black uppercase leading-none text-[#1F2937] sm:text-6xl lg:text-7xl">
                     {business.name}
                   </h1>
-                  <p className="mt-4 max-w-xl text-xl font-bold leading-8 text-[#F97316] sm:text-2xl">
+                  <p className="mt-4 max-w-xl text-xl font-bold leading-8 text-[#0F766E] sm:text-2xl">
                     {business.subtitle}
                   </p>
                 </div>
@@ -277,7 +292,7 @@ export default function PetShopPage() {
                   {heroBadges.map((badge) => (
                     <div
                       key={badge}
-                      className="rounded-[22px] border border-[#FED7AA] bg-white px-4 py-4 shadow-sm"
+                      className="rounded-[22px] border border-[#BFDBFE] bg-white px-4 py-4 shadow-sm"
                     >
                       <p className="text-sm font-semibold leading-6 text-[#1F2937]">
                         {badge}
@@ -286,7 +301,7 @@ export default function PetShopPage() {
                   ))}
                 </div>
 
-                <div className="mt-8 rounded-[26px] border border-[#FDE68A] bg-[#FFFAF0] p-5 shadow-sm">
+                <div className="mt-8 rounded-[26px] border border-[#BFDBFE] bg-[#F7FCFF] p-5 shadow-sm">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E3A8A]">
@@ -308,8 +323,8 @@ export default function PetShopPage() {
                 </div>
               </div>
 
-              <div className="bg-[#FFF4E8] p-5 sm:p-6 lg:p-8">
-                <div className="rounded-[30px] border border-[#FED7AA] bg-white p-3 shadow-lg shadow-orange-100/60">
+              <div className="bg-[#ECF8FF] p-5 sm:p-6 lg:p-8">
+                <div className="rounded-[30px] border border-[#BFDBFE] bg-white p-3 shadow-lg shadow-sky-100/70">
                   <div className="relative h-[280px] overflow-hidden rounded-[24px] sm:h-[340px]">
                     <Image
                       src="/images/pet-shop/fachada.jpg"
@@ -321,7 +336,7 @@ export default function PetShopPage() {
                     />
                   </div>
                   <div className="grid gap-3 p-3 sm:grid-cols-[1.1fr_0.9fr]">
-                    <div className="rounded-[22px] bg-[#FFF7ED] p-4">
+                    <div className="rounded-[22px] bg-[#F7FCFF] p-4">
                       <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E3A8A]">
                         Servicio cercano
                       </p>
@@ -344,7 +359,7 @@ export default function PetShopPage() {
                 </div>
 
                 <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                  <div className="overflow-hidden rounded-[24px] border border-[#FED7AA] bg-white shadow-md shadow-orange-100/50">
+                  <div className="overflow-hidden rounded-[24px] border border-[#BFDBFE] bg-white shadow-md shadow-sky-100/60">
                     <div className="relative h-44">
                       <Image
                         src="/images/pet-shop/fachada2.jpeg"
@@ -355,7 +370,7 @@ export default function PetShopPage() {
                       />
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[24px] border border-[#FED7AA] bg-white shadow-md shadow-orange-100/50">
+                  <div className="overflow-hidden rounded-[24px] border border-[#BFDBFE] bg-white shadow-md shadow-sky-100/60">
                     <div className="relative h-44">
                       <Image
                         src="/images/pet-shop/alimentos.jpeg"
@@ -377,7 +392,7 @@ export default function PetShopPage() {
       <section className="py-16 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.95fr] lg:px-8">
           <div>
-            <span className="inline-flex rounded-full bg-[#FDE68A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
+            <span className="inline-flex rounded-full bg-[#CCFBF1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#0F766E]">
               Sobre nosotros
             </span>
             <h2 className="mt-5 max-w-2xl text-3xl font-black text-[#1F2937] sm:text-4xl">
@@ -385,7 +400,7 @@ export default function PetShopPage() {
             </h2>
           </div>
 
-          <div className="rounded-[28px] border border-[#F97316]/10 bg-white p-6 shadow-lg shadow-orange-100/60">
+          <div className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70">
             <p className="text-base leading-8 text-[#6B7280]">
               En PET SHOP trabajamos para que encuentres peluqueria canina,
               alimento para mascotas, accesorios y productos basicos en un mismo
@@ -403,11 +418,11 @@ export default function PetShopPage() {
       {/* Servicios */}
       <section
         id="servicios"
-        className="border-y border-[#FED7AA] bg-white/70 py-16 sm:py-20"
+        className="scroll-mt-32 border-y border-[#BFDBFE] bg-white/70 py-16 sm:scroll-mt-36 sm:py-20"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-flex rounded-full bg-[#FFEDD5] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
+            <span className="inline-flex rounded-full bg-[#E0F2FE] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1D4ED8]">
               Servicios y categorias
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
@@ -423,9 +438,9 @@ export default function PetShopPage() {
             {services.map((service) => (
               <article
                 key={service.title}
-                className="rounded-[28px] border border-[#FED7AA] bg-white p-6 shadow-lg shadow-orange-100/60 transition hover:-translate-y-1"
+                className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70 transition hover:-translate-y-1"
               >
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFF7ED] text-sm font-black tracking-[0.18em] text-[#1E3A8A] shadow-sm">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0F9FF] text-sm font-black tracking-[0.18em] text-[#1E3A8A] shadow-sm">
                   {service.emoji}
                 </div>
                 <h3 className="mt-5 text-xl font-bold text-[#1F2937]">
@@ -441,10 +456,10 @@ export default function PetShopPage() {
       </section>
 
       {/* Galeria */}
-      <section id="galeria" className="py-16 sm:py-20">
+      <section id="galeria" className="scroll-mt-32 py-16 sm:scroll-mt-36 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-flex rounded-full bg-[#FDE68A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
+            <span className="inline-flex rounded-full bg-[#CCFBF1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#0F766E]">
               Galeria del negocio
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
@@ -457,7 +472,7 @@ export default function PetShopPage() {
           </div>
 
           <div className="mt-10 grid gap-5 lg:grid-cols-12 lg:items-stretch">
-            <article className="flex h-full flex-col overflow-hidden rounded-[32px] border border-[#FED7AA] bg-white shadow-lg shadow-orange-100/60 lg:col-span-7">
+            <article className="flex h-full flex-col overflow-hidden rounded-[32px] border border-[#BFDBFE] bg-white shadow-lg shadow-sky-100/70 lg:col-span-7">
               <div className="relative h-80 sm:h-96 lg:min-h-[430px] lg:flex-1">
                 <Image
                   src={galleryImages[0].src}
@@ -481,7 +496,7 @@ export default function PetShopPage() {
               {galleryImages.slice(1).map((image) => (
                 <article
                   key={image.src}
-                  className="overflow-hidden rounded-[28px] border border-[#FED7AA] bg-white shadow-lg shadow-orange-100/60"
+                  className="overflow-hidden rounded-[28px] border border-[#BFDBFE] bg-white shadow-lg shadow-sky-100/70"
                 >
                   <div className="relative h-56">
                     <Image
@@ -508,9 +523,9 @@ export default function PetShopPage() {
       </section>
 
       {/* Beneficios */}
-      <section id="beneficios" className="py-16 sm:py-20">
+      <section id="beneficios" className="scroll-mt-32 py-16 sm:scroll-mt-36 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[36px] border border-[#FED7AA] bg-[linear-gradient(135deg,#FFF7ED_0%,#FFFFFF_45%,#FFEDD5_100%)] p-6 shadow-xl shadow-orange-100/60 sm:p-8 lg:p-10">
+          <div className="overflow-hidden rounded-[36px] border border-[#BFDBFE] bg-[linear-gradient(135deg,#F7FCFF_0%,#FFFFFF_45%,#E0F2FE_100%)] p-6 shadow-xl shadow-sky-100/70 sm:p-8 lg:p-10">
             <div className="max-w-3xl">
               <span className="inline-flex rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A] shadow-sm">
                 Beneficios visibles
@@ -524,9 +539,9 @@ export default function PetShopPage() {
               {benefits.map((benefit) => (
                 <article
                   key={benefit.number}
-                  className="rounded-[28px] border border-[#FED7AA] bg-white p-6 shadow-md shadow-orange-100/50"
+                  className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-md shadow-sky-100/60"
                 >
-                  <p className="text-sm font-black uppercase tracking-[0.22em] text-[#F97316]">
+                  <p className="text-sm font-black uppercase tracking-[0.22em] text-[#0F766E]">
                     {benefit.number}
                   </p>
                   <h3 className="mt-4 text-xl font-bold text-[#1F2937]">
@@ -543,10 +558,10 @@ export default function PetShopPage() {
       </section>
 
       {/* Resenas */}
-      <section className="border-y border-[#FED7AA] bg-white/70 py-16 sm:py-20">
+      <section className="border-y border-[#BFDBFE] bg-white/70 py-16 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="inline-flex rounded-full bg-[#FFEDD5] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
+            <span className="inline-flex rounded-full bg-[#E0F2FE] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1D4ED8]">
               Reseñas
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
@@ -562,9 +577,9 @@ export default function PetShopPage() {
             {reviews.map((review) => (
               <article
                 key={review.name}
-                className="rounded-[28px] border border-[#FED7AA] bg-white p-6 shadow-lg shadow-orange-100/60"
+                className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70"
               >
-                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#F97316]">
+                <p className="text-sm font-bold uppercase tracking-[0.18em] text-[#0F766E]">
                   Calificacion lista: {review.rating}/5
                 </p>
                 <p className="mt-5 text-lg font-bold text-[#1F2937]">
@@ -583,10 +598,10 @@ export default function PetShopPage() {
       </section>
 
       {/* Contacto / ubicacion */}
-      <section id="contacto" className="py-16 sm:py-20">
+      <section id="contacto" className="scroll-mt-32 py-16 sm:scroll-mt-36 sm:py-20">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:px-8">
           <div>
-            <span className="inline-flex rounded-full bg-[#FDE68A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
+            <span className="inline-flex rounded-full bg-[#CCFBF1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#0F766E]">
               Contacto y ubicacion
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
@@ -598,7 +613,7 @@ export default function PetShopPage() {
             </p>
 
             <div className="mt-8 space-y-4">
-              <div className="rounded-[28px] border border-[#FED7AA] bg-white p-6 shadow-lg shadow-orange-100/60">
+              <div className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70">
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1E3A8A]">
                   WhatsApp
                 </p>
@@ -611,7 +626,7 @@ export default function PetShopPage() {
                 </p>
               </div>
 
-              <div className="rounded-[28px] border border-[#FED7AA] bg-white p-6 shadow-lg shadow-orange-100/60">
+              <div className="rounded-[28px] border border-[#BFDBFE] bg-white p-6 shadow-lg shadow-sky-100/70">
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-[#1E3A8A]">
                   Direccion
                 </p>
@@ -646,8 +661,8 @@ export default function PetShopPage() {
             </div>
           </div>
 
-          <div className="w-full self-center overflow-hidden rounded-[34px] border border-[#FED7AA] bg-white shadow-xl shadow-orange-100/60 lg:mx-auto lg:max-w-[620px]">
-            <div className="border-b border-[#FED7AA] bg-[#FFF7ED] px-6 py-4">
+          <div className="w-full self-center overflow-hidden rounded-[34px] border border-[#BFDBFE] bg-white shadow-xl shadow-sky-100/70 lg:mx-auto lg:max-w-[620px]">
+            <div className="border-b border-[#BFDBFE] bg-[#F7FCFF] px-6 py-4">
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#1E3A8A]">
                 Ubicacion real
               </p>
@@ -669,7 +684,7 @@ export default function PetShopPage() {
       {/* CTA final */}
       <section className="pb-16 pt-2 sm:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#F97316_0%,#FB923C_45%,#FACC15_100%)] px-6 py-10 text-white shadow-2xl shadow-orange-200/60 sm:px-10 sm:py-14">
+          <div className="overflow-hidden rounded-[36px] bg-[linear-gradient(135deg,#0F172A_0%,#1D4ED8_45%,#0F766E_100%)] px-6 py-10 text-white shadow-2xl shadow-sky-200/30 sm:px-10 sm:py-14">
             <div className="max-w-3xl">
               <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/85">
                 CTA final
@@ -689,7 +704,7 @@ export default function PetShopPage() {
                   rel="noreferrer"
                   className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-[#1F2937] shadow-lg transition hover:-translate-y-0.5"
                 >
-                  <FaWhatsapp className="text-[#F97316]" />
+                  <FaWhatsapp className="text-[#0F766E]" />
                   Quiero informacion por WhatsApp
                 </a>
                 <a
@@ -705,13 +720,13 @@ export default function PetShopPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-[#FED7AA] bg-white py-10">
+      <footer className="border-t border-[#BFDBFE] bg-white py-10">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
           <div>
             <p className="text-xl font-black uppercase tracking-[0.18em] text-[#1F2937]">
               {business.name}
             </p>
-            <p className="mt-2 text-sm font-semibold text-[#F97316]">
+            <p className="mt-2 text-sm font-semibold text-[#0F766E]">
               {business.subtitle}
             </p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B7280]">
@@ -750,11 +765,12 @@ export default function PetShopPage() {
         target="_blank"
         rel="noreferrer"
         aria-label="Hablar por WhatsApp con PET SHOP"
-        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-3 rounded-full bg-[#F97316] px-5 py-3 text-sm font-semibold text-white shadow-2xl shadow-[#F97316]/35 transition hover:-translate-y-0.5 hover:bg-[#EA580C] sm:bottom-6 sm:right-6"
+        className="fixed bottom-4 right-4 z-50 inline-flex items-center gap-3 rounded-full bg-[#0F766E] px-5 py-3 text-sm font-semibold text-white shadow-2xl shadow-[#0F766E]/25 transition hover:-translate-y-0.5 hover:bg-[#115E59] sm:bottom-6 sm:right-6"
       >
         <FaWhatsapp className="text-lg" />
         <span>WhatsApp</span>
       </a>
-    </main>
+      </main>
+    </>
   );
 }
