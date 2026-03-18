@@ -6,7 +6,7 @@ const business = {
   name: "PET SHOP",
   subtitle: "Peluqueria canina y productos para mascotas",
   description:
-    "Peluqueria canina, alimentos y productos esenciales para mascotas con atencion cercana y contacto rapido por WhatsApp.",
+    "En PET SHOP te ayudamos con peluqueria canina, alimentos y productos basicos para que resuelvas lo de tu mascota en un solo lugar.",
   whatsappNumber: "314 480 1167",
   whatsappUrl:
     "https://wa.me/573144801167?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20sus%20servicios%20y%20productos",
@@ -36,31 +36,31 @@ const services = [
     emoji: "PC",
     title: "Peluqueria canina",
     description:
-      "Servicio pensado para quienes buscan mantener a su perrito limpio, arreglado y bien atendido con un trato cercano.",
+      "Nos encargamos de que tu perrito salga limpio, arreglado y bien cuidado, con un trato cercano y sin afanes.",
   },
   {
     emoji: "AL",
     title: "Alimentos para perros y gatos",
     description:
-      "Una categoria clave para compras frecuentes, reposicion rapida y pedidos practicos por WhatsApp.",
+      "Manejamos alimentos para perros y gatos para que resuelvas la compra de siempre rapido y sin dar tantas vueltas.",
   },
   {
     emoji: "AC",
     title: "Accesorios para mascotas",
     description:
-      "Productos utiles para complementar la compra diaria con opciones sencillas y faciles de consultar.",
+      "Tambien tenemos accesorios utiles para complementar lo que tu mascota necesita en casa o para salir.",
   },
   {
     emoji: "CU",
     title: "Productos de cuidado",
     description:
-      "Elementos basicos para higiene y bienestar de tu mascota, presentados de forma clara y comercial.",
+      "Aqui encuentras productos basicos de higiene y cuidado para tener a tu mascota bien atendida.",
   },
   {
     emoji: "WA",
     title: "Atencion por WhatsApp",
     description:
-      "Ideal para preguntar por servicios, validar productos disponibles y concretar pedidos sin complicaciones.",
+      "Si quieres preguntar por un servicio o confirmar un producto, nos escribes y te respondemos lo mas rapido posible.",
   },
 ] as const;
 
@@ -70,28 +70,28 @@ const galleryImages = [
     alt: "Fachada principal de PET SHOP",
     title: "Fachada principal",
     description:
-      "La presencia fisica del negocio transmite cercania y ayuda a generar confianza desde la primera visita.",
+      "Asi se ve nuestro punto, un lugar cercano para traer a tu mascota o pasar por lo que necesitas.",
   },
   {
     src: "/images/pet-shop/fachada2.jpeg",
     alt: "Otra vista de la fachada de PET SHOP",
     title: "Negocio visible y local",
     description:
-      "Una presentacion directa para dejar claro que se trata de un pet shop real, cercano y facil de ubicar.",
+      "Queremos que nos ubiques facil y sientas confianza antes de venir.",
   },
   {
     src: "/images/pet-shop/alimentos.jpeg",
     alt: "Productos de alimento para mascotas en PET SHOP",
     title: "Productos para compra diaria",
     description:
-      "Contenido visual util para mostrar variedad y apoyar decisiones de compra sin sobreexplicar.",
+      "Mostramos parte de lo que manejamos para que veas que aqui puedes resolver la compra del dia a dia.",
   },
   {
     src: "/images/pet-shop/alimentos2.jpeg",
     alt: "Mas productos para mascotas en PET SHOP",
     title: "Apoyo para pedidos por WhatsApp",
     description:
-      "Fotos listas para reforzar consultas, promociones y pedidos rapidos desde el celular.",
+      "Si prefieres escribir primero, estas fotos tambien te ayudan a preguntar por lo que necesitas.",
   },
 ] as const;
 
@@ -100,19 +100,19 @@ const benefits = [
     number: "01",
     title: "Atencion cercana",
     description:
-      "La pagina se siente de negocio local real, con un tono simple y directo que ayuda a generar confianza.",
+      "Hablamos contigo de forma simple, te orientamos y buscamos que te vayas tranquilo con lo que necesitas.",
   },
   {
     number: "02",
     title: "Productos para el dia a dia",
     description:
-      "Se resaltan servicios y categorias que una familia con mascota necesita con frecuencia y quiere resolver rapido.",
+      "Nos enfocamos en lo que mas se necesita: comida, cuidado, accesorios y peluqueria para resolver facil.",
   },
   {
     number: "03",
     title: "Contacto rapido por WhatsApp",
     description:
-      "El CTA principal esta visible desde arriba y se repite al final para no perder oportunidades de contacto.",
+      "Dejamos WhatsApp a un clic para que nos escribas, preguntes y coordines todo sin complicarte.",
   },
 ] as const;
 
@@ -132,6 +132,24 @@ const reviews = [
   {
     name: "Sandra Mendez",
     text: "Excelente atencion, muy amables. Tienen variedad de productos y la peluqueria canina es muy buena, mi perrita quedo hermosa.",
+    source: "Google Maps",
+    rating: 5,
+  },
+  {
+    name: "María Fernanda López",
+    text: "Excelente atención, siempre encuentro lo que necesito para mi mascota. Los precios son buenos y atienden muy rápido.",
+    source: "Google Maps",
+    rating: 5,
+  },
+  {
+    name: "Andrés Cárdenas",
+    text: "Buen servicio de peluquería, mi perro salió limpio y tranquilo. Además tienen variedad de productos básicos.",
+    source: "Google Maps",
+    rating: 4,
+  },
+  {
+    name: "Natalia Vargas",
+    text: "Me gusta porque es un lugar confiable y cercano. He comprado comida y accesorios y todo bien, también responden por WhatsApp.",
     source: "Google Maps",
     rating: 5,
   },
@@ -224,7 +242,7 @@ export default function PetShopPage() {
             <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
               <div className="relative border-b border-[#FED7AA] bg-[linear-gradient(180deg,#FFF7ED_0%,#FFEDD5_100%)] p-7 sm:p-10 lg:border-b-0 lg:border-r lg:p-12">
                 <div className="inline-flex rounded-full bg-[#1E3A8A] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white shadow-sm">
-                  Negocio local para tu mascota
+                  Estamos cerca de ti y de tu mascota
                 </div>
 
                 <div className="mt-8 rounded-[32px] border border-[#FDBA74] bg-white px-6 py-6 shadow-lg shadow-orange-100/60">
@@ -308,8 +326,8 @@ export default function PetShopPage() {
                         Servicio cercano
                       </p>
                       <p className="mt-3 text-sm leading-7 text-[#6B7280]">
-                        Un pet shop de barrio que mezcla peluqueria canina,
-                        alimentos y atencion rapida sin pasos complicados.
+                        Aqui mezclamos peluqueria canina, alimentos y una
+                        atencion sencilla para que resuelvas rapido.
                       </p>
                     </div>
                     <div className="rounded-[22px] bg-[#1E3A8A] p-4 text-white">
@@ -363,22 +381,20 @@ export default function PetShopPage() {
               Sobre nosotros
             </span>
             <h2 className="mt-5 max-w-2xl text-3xl font-black text-[#1F2937] sm:text-4xl">
-              Una pagina pensada para mostrar un pet shop cercano, util y facil
-              de contactar
+              Aqui encuentras un pet shop cercano, practico y facil de contactar
             </h2>
           </div>
 
           <div className="rounded-[28px] border border-[#F97316]/10 bg-white p-6 shadow-lg shadow-orange-100/60">
             <p className="text-base leading-8 text-[#6B7280]">
-              PET SHOP presenta una oferta simple y comercial para familias que
-              buscan peluqueria canina, alimento para mascotas, accesorios y
-              productos basicos. El tono de la pagina evita verse frio o
-              corporativo y prioriza la sensacion de negocio local real.
+              En PET SHOP trabajamos para que encuentres peluqueria canina,
+              alimento para mascotas, accesorios y productos basicos en un mismo
+              lugar, con un trato cercano y sin enredos.
             </p>
             <p className="mt-4 text-base leading-8 text-[#6B7280]">
-              La idea es que un cliente pueda entender rapido que hace el
-              negocio, ver que existe fisicamente y pasar directo al WhatsApp
-              para pedir informacion o resolver una compra.
+              Queremos que apenas entres entiendas rapido lo que hacemos, veas
+              que estamos aqui fisicamente y tengas a la mano nuestro WhatsApp
+              para preguntar o pedir informacion.
             </p>
           </div>
         </div>
@@ -395,11 +411,11 @@ export default function PetShopPage() {
               Servicios y categorias
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
-              Todo lo necesario para presentar el negocio de forma clara
+              Lo que tenemos para ayudarte con tu mascota
             </h2>
             <p className="mt-4 text-base leading-7 text-[#6B7280]">
-              Estas tarjetas ayudan a explicar rapidamente que ofrece el negocio
-              y por que vale la pena escribir por WhatsApp.
+              Reunimos lo mas importante para que veas rapido si aqui esta lo
+              que necesitas y nos escribas de una.
             </p>
           </div>
 
@@ -432,11 +448,11 @@ export default function PetShopPage() {
               Galeria del negocio
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
-              Fachada, tienda y productos para que la pagina se sienta real
+              Asi se ve nuestro espacio y parte de lo que manejamos
             </h2>
             <p className="mt-4 text-base leading-7 text-[#6B7280]">
-              Las imagenes se dejaron organizadas en un array local para que sea
-              sencillo reemplazarlas o agregar nuevas fotos del negocio luego.
+              Queremos que nos veas como somos: un punto cercano, real y con
+              productos para resolver lo que tu mascota necesita.
             </p>
           </div>
 
@@ -500,7 +516,7 @@ export default function PetShopPage() {
                 Beneficios visibles
               </span>
               <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
-                Una estructura sencilla para vender confianza y cercania
+                Tres razones por las que muchas personas nos escriben primero
               </h2>
             </div>
 
@@ -531,15 +547,14 @@ export default function PetShopPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="inline-flex rounded-full bg-[#FFEDD5] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#1E3A8A]">
-              Resenas
+              Reseñas
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
-              Comentarios de clientes sobre el negocio
+              Lo que dicen quienes ya han venido
             </h2>
             <p className="mt-4 text-base leading-7 text-[#6B7280]">
-              Una seccion pensada para reforzar confianza con experiencias
-              positivas sobre la atencion, la peluqueria canina y los productos
-              disponibles.
+              Estos comentarios hablan de algo muy puntual: buena atencion,
+              peluqueria bien hecha y productos faciles de conseguir.
             </p>
           </div>
 
@@ -575,12 +590,11 @@ export default function PetShopPage() {
               Contacto y ubicacion
             </span>
             <h2 className="mt-5 text-3xl font-black text-[#1F2937] sm:text-4xl">
-              Un bloque directo para escribir, preguntar y visitar
+              Estamos listos para atenderte por WhatsApp o en nuestro punto
             </h2>
             <p className="mt-4 text-base leading-7 text-[#6B7280]">
-              Aqui ya se muestra el punto de referencia del negocio con
-              direccion clara, WhatsApp visible y mapa para facilitar visitas o
-              consultas.
+              Aqui te dejamos nuestro WhatsApp, la direccion y el mapa para que
+              nos escribas, preguntes o vengas directo al punto.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -592,8 +606,8 @@ export default function PetShopPage() {
                   {business.whatsappNumber}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-[#6B7280]">
-                  Haz tu pedido o consulta por WhatsApp para recibir informacion
-                  sobre productos y servicios.
+                  Escribenos para preguntar por peluqueria, concentrado,
+                  accesorios o cualquier producto que necesites.
                 </p>
               </div>
 
@@ -605,8 +619,7 @@ export default function PetShopPage() {
                   {business.address}
                 </p>
                 <p className="mt-2 text-sm leading-7 text-[#6B7280]">
-                  Punto de referencia listo para que el cliente ubique el
-                  negocio con mas facilidad.
+                  Aqui nos encuentras si prefieres venir directamente al punto.
                 </p>
               </div>
             </div>
@@ -665,8 +678,8 @@ export default function PetShopPage() {
                 Escribenos por WhatsApp y conoce nuestros productos y servicios
               </h2>
               <p className="mt-4 text-base leading-7 text-white/90">
-                Una llamada a la accion clara para cerrar la visita con el paso
-                mas importante: hacer contacto directo con el negocio.
+                Si quieres agendar peluqueria, preguntar por un producto o
+                confirmar disponibilidad, escribenos y te ayudamos.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -702,8 +715,8 @@ export default function PetShopPage() {
               {business.subtitle}
             </p>
             <p className="mt-4 max-w-xl text-sm leading-7 text-[#6B7280]">
-              Peluqueria canina, productos para mascotas y atencion cercana por
-              WhatsApp para resolver compras y consultas de forma practica.
+              Peluqueria canina, productos para mascotas y atencion cercana para
+              que resuelvas facil lo que necesitas para tu peludito.
             </p>
           </div>
 

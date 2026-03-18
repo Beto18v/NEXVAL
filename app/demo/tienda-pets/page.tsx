@@ -147,6 +147,24 @@ const reviews = [
     source: "Google Maps",
     rating: 4,
   },
+  {
+    name: "Paula Rincón",
+    text: "Muy buen servicio, llevé a mi perro a peluquería y lo dejaron súper limpio y bien cuidado. Se nota que trabajan con cariño.",
+    source: "Google Maps",
+    rating: 5,
+  },
+  {
+    name: "Luis Herrera",
+    text: "Buen surtido de concentrado y precios normales. Me gusta porque queda cerca y atienden rápido, lo recomiendo para compras del día a día.",
+    source: "Google Maps",
+    rating: 4,
+  },
+  {
+    name: "Camila Torres",
+    text: "La atención es muy amable y siempre ayudan a elegir lo mejor para las mascotas. También responden por WhatsApp y eso facilita mucho todo.",
+    source: "Google Maps",
+    rating: 5,
+  },
 ] as const;
 
 const structuredData = {
@@ -567,7 +585,7 @@ export default function TiendaPetsPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
               <span className="inline-flex rounded-full bg-[#FFF7ED] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#C2410C]">
-                Resenas
+                Reseñas
               </span>
               <h2 className="mt-5 text-3xl font-black text-[#0F172A] sm:text-4xl">
                 Lo que mas nos destacan quienes compran con nosotros
@@ -624,8 +642,7 @@ export default function TiendaPetsPage() {
               </h2>
               <p className="mt-4 text-base leading-7 text-[#475569]">
                 Aqui te dejamos nuestras direcciones para que llegues sin
-                enredos o nos escribas antes de venir y confirmes lo que
-                buscas.
+                enredos o nos escribas antes de venir y confirmes lo que buscas.
               </p>
 
               <div className="mt-8 space-y-4">
